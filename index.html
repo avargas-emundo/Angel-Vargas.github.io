@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/components.css">
     <link rel="stylesheet" href="css/pages.css">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/visual-enhancements.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Barlow:wght@300;400;500;600;700&family=Barlow+Condensed:wght@400;600;700;900&display=swap" rel="stylesheet">
@@ -461,7 +461,7 @@
         <!-- ══════════════════════════════
              HERO
         ══════════════════════════════ -->
-        <section id="hero" data-aos="fade-up">
+        <section id="hero">
             <div class="row align-items-center gy-5">
                 <div class="col-md-7">
                     <span class="section-eyebrow">Automotive Systems Engineer</span>
@@ -500,7 +500,7 @@
         <!-- ══════════════════════════════
              ABOUT PREVIEW
         ══════════════════════════════ -->
-        <section id="about" data-aos="fade-up">
+        <section id="about">
             <div class="row align-items-center gy-4">
                 <div class="col-md-7">
                     <span class="section-eyebrow">About</span>
@@ -542,12 +542,12 @@
         <!-- ══════════════════════════════
              TECHNICAL SHOWCASE
         ══════════════════════════════ -->
-        <section id="technical-showcase" class="technical-showcase" data-aos="fade-up">
+        <section id="technical-showcase" class="technical-showcase">
             <span class="section-eyebrow">Selected Work</span>
             <h2>Technical Showcase</h2>
             <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4">
 
-                <div class="col" data-aos="fade-up">
+                <div class="col">
                     <article class="glass-showcase-card h-100">
                         <div class="project-header-img">
                             <img src="images/Expedition-Wall.jpg" alt="2025 Program Launch">
@@ -576,7 +576,7 @@
                     </article>
                 </div>
 
-                <div class="col" data-aos="fade-up" data-aos-delay="100">
+                <div class="col">
                     <article class="glass-showcase-card h-100">
                         <div class="project-header-img">
                             <img src="images/26F150.jpg" alt="Acoustic & Thermal Optimization">
@@ -605,7 +605,7 @@
                     </article>
                 </div>
 
-                <div class="col" data-aos="fade-up" data-aos-delay="200">
+                <div class="col">
                     <article class="glass-showcase-card h-100">
                         <div class="project-header-img">
                             <img src="images/BMW2021.jpg" alt="ECU Diagnostics Robustness">
@@ -642,7 +642,7 @@
         <!-- ══════════════════════════════
              CAREER TIMELINE
         ══════════════════════════════ -->
-        <section id="timeline" class="experience-timeline" data-aos="fade-up">
+        <section id="timeline" class="experience-timeline">
             <span class="section-eyebrow">Experience</span>
             <h2>Career Timeline</h2>
             <div class="timeline-track">
@@ -716,7 +716,7 @@
         <!-- ══════════════════════════════
              CONTACT
         ══════════════════════════════ -->
-        <section id="contact" data-aos="fade-up">
+        <section id="contact">
             <div class="row g-4">
                 <div class="col-md-5">
                     <span class="section-eyebrow">Contact</span>
@@ -745,7 +745,7 @@
         <!-- ══════════════════════════════
              SUMMARY / SKILL CLOUD
         ══════════════════════════════ -->
-        <section id="summary" class="split-summary" data-aos="fade-up">
+        <section id="summary" class="split-summary">
             <div class="row align-items-center g-4">
                 <div class="col-lg-6">
                     <div class="summary-copy">
@@ -787,8 +787,21 @@
     </main>
 
     <!-- FOOTER -->
-    <footer class="text-center py-4">
-        <p>&copy; 2026 Angel Vargas. All rights reserved.</p>
+    <footer style="border-top: 1px solid rgba(0,0,0,0.07); margin-top: 2rem;">
+        <div class="container py-4">
+            <div class="d-flex flex-wrap justify-content-between align-items-center gap-3">
+                <p style="color: #9ca3af; font-size: 0.85rem; margin: 0;">
+                    &copy; 2026 Angel Vargas. All rights reserved.
+                </p>
+                <p style="color: #9ca3af; font-size: 0.78rem; margin: 0; max-width: 480px; text-align: right; line-height: 1.5;">
+                    <span style="color: #6c8ec4; font-weight: 600;">Built with AI</span> — 
+                    This portfolio was designed and built in active collaboration with 
+                    <a href="https://claude.ai" target="_blank" style="color: #6c8ec4; text-decoration: none;">Claude (Anthropic)</a> — 
+                    from architecture and content strategy to code and copywriting. 
+                    The process itself is part of the work.
+                </p>
+            </div>
+        </div>
     </footer>
 
     <!-- FLOATING DOCK -->
@@ -816,7 +829,8 @@
     </nav>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
     <script src="js/script.js"></script>
 </body>
 </html>

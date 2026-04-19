@@ -113,3 +113,7 @@ body.dark-mode .summary-copy p {
 body.dark-mode .summary-copy h2 {
     color: #f1f5f9 !important;
 }
+
+body.dark-mode footer {
+    border-color: rgba(255,255,255,0.05) !important;
+}
