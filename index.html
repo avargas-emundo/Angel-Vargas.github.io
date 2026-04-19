@@ -4,40 +4,372 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Your Portfolio</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/pages.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 </head>
 <body>
-    <header>
-        <h1>Welcome to My Portfolio</h1>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="projects.html">Projects</a></li>
-            </ul>
-        </nav>
-    </header>
-    
-    <main>
-        <section>
-            <h2>About Me</h2>
-            <img src="images/profile.jpg" alt="Profile Picture">
-            <p>Welcome to my portfolio! I am [Your Name], a [Your Profession/Field]. Here you can find information about my work and projects.</p>
+    <main class="container">
+        <section id="hero" class="pt-5 mt-5" data-aos="fade-up">
+            <div class="row align-items-center gy-4">
+                <div class="col-md-7">
+                    <h1 class="display-4 fw-bold">Angel Vargas</h1>
+                    <h2 class="h3 text-primary">Diagnostics Design Engineer | Systems Integration Lead</h2>
+                    <p class="lead">Building robust diagnostics systems and leading cross-functional engineering programs with clarity, precision, and technical depth.</p>
+                    <div class="d-flex flex-wrap gap-3">
+                        <a href="projects.html" class="btn btn-primary btn-lg hero-btn">Explore My Work</a>
+                        <a href="#contact" class="btn btn-outline-primary btn-lg hero-btn">Contact</a>
+                    </div>
+                    <div class="hero-highlights d-flex flex-wrap align-items-center gap-4 mt-4">
+                        <span class="d-flex align-items-center text-muted">
+                            <i class="bi bi-speedometer2 me-2"></i>
+                            6+ Years Automotive Exp
+                        </span>
+                        <span class="d-flex align-items-center text-muted">
+                            <i class="bi bi-award me-2"></i>
+                            Six Sigma Green Belt
+                        </span>
+                        <span class="d-flex align-items-center text-muted">
+                            <i class="bi bi-globe2 me-2"></i>
+                            Global Program Lead
+                        </span>
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <div class="hero-visual rounded-4 overflow-hidden">
+                        <img src="images/Mustang-Wall.jpg" alt="Automotive Engineering" class="hero-tech-diagram">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ABOUT SECTION -->
+        <section id="about" class="my-5" data-aos="fade-up">
+            <div class="row align-items-center gy-4">
+                <div class="col-md-7">
+                    <h2 class="section-title">About Me</h2>
+                    <p>Welcome to my portfolio! I am Angel Vargas, an Automotive Systems Engineer with over five years of experience at global OEMs including Ford Motor Company and BMW Group, specializing in diagnostics robustness, systems integration, and vehicle feature validation.</p>
+                    <p>My work focuses on translating field failures and customer-impact issues into structured requirements, validation strategies, and diagnostic improvements that enhance system reliability across the vehicle lifecycle. I have led cross-functional initiatives bridging architecture, software, and validation teams in international vehicle programs.</p>
+                    <p>I am seeking a professionally oriented Master’s degree to deepen my analytical foundation in vehicle systems, diagnostics, and control strategies for next-generation automotive platforms.</p>
+                </div>
+                <div class="col-md-5">
+                    <div class="about-visual rounded-4 p-4">
+                        <div class="about-stats-grid">
+                            <div class="about-stat">
+                                <span class="about-stat-number">700+</span>
+                                <span class="about-stat-label">Requirements Authored</span>
+                            </div>
+                            <div class="about-stat">
+                                <span class="about-stat-number">≈$3.4M</span>
+                                <span class="about-stat-label">Warranty Cost Reduced</span>
+                            </div>
+                            <div class="about-stat">
+                                <span class="about-stat-number">12</span>
+                                <span class="about-stat-label">Innovation Disclosures</span>
+                            </div>
+                            <div class="about-stat">
+                                <span class="about-stat-number">3</span>
+                                <span class="about-stat-label">Global OEM Programs</span>
+                            </div>
+                        </div>
+                        <p class="about-visual-note mt-3 text-muted text-center" style="font-size:0.8rem;">
+                            📸 Professional photo coming soon
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FEATURED PROJECTS SECTION -->
+        <section id="technical-showcase" class="technical-showcase mb-5" data-aos="fade-up">
+            <h2 class="section-title">Technical Showcase</h2>
+            <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4">
+                <div class="col" data-aos="fade-up">
+                    <article class="glass-showcase-card h-100">
+                        <div class="project-header-img">
+                            <img src="images/Navigator-PRB.jpg" alt="2025 Program Launch">
+                        </div>
+                        <div class="card-body d-flex flex-column">
+                            <span class="card-category text-info mb-2">2025 Navigator/Expedition Launch</span>
+                            <h3 class="h5 fw-bold mb-2">2025 Program Launch</h3>
+                            <div class="kpi-grid mb-3">
+                                <div class="kpi-item">
+                                    <span>≥98%</span>
+                                    <label>FTT Quality</label>
+                                </div>
+                                <div class="kpi-item">
+                                    <span>2025</span>
+                                    <label>Program Launch</label>
+                                </div>
+                            </div>
+                            <p class="text-slate-gray mb-4">Managed US plant rotations ensuring 98%+ first-time-through build quality for Navigator & Expedition Job #1.</p>
+                            <div class="tag-row d-flex flex-wrap gap-2 mb-4">
+                                <span class="method-tag">Supplier Onboarding</span>
+                                <span class="method-tag">On-site Triage</span>
+                                <span class="method-tag">Launch Engineering</span>
+                            </div>
+                            <div class="kpi-row d-flex flex-wrap gap-3 mb-4">
+                                <div class="kpi-pill">
+                                    <i class="bi bi-graph-up"></i>
+                                    <span>Impact</span>
+                                </div>
+                                <div class="kpi-pill">
+                                    <i class="bi bi-globe"></i>
+                                    <span>Scope</span>
+                                </div>
+                            </div>
+                            <a href="projects.html" class="btn btn-outline-light btn-sm deep-dive-btn mt-auto">Deep Dive</a>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="col" data-aos="fade-up" data-aos-delay="100">
+                    <article class="glass-showcase-card h-100">
+                        <div class="project-header-img">
+                            <img src="images/PRB-NVH.jpg" alt="Acoustic & Thermal Optimization">
+                        </div>
+                        <div class="card-body d-flex flex-column">
+                            <span class="card-category text-warning mb-2">Acoustic/Thermal Optimization</span>
+                            <h3 class="h5 fw-bold mb-2">Acoustic & Thermal Optimization</h3>
+                            <div class="kpi-grid mb-3">
+                                <div class="kpi-item">
+                                    <span>150+</span>
+                                    <label>Requirements</label>
+                                </div>
+                                <div class="kpi-item">
+                                    <span>BCM</span>
+                                    <label>Process Owner</label>
+                                </div>
+                            </div>
+                            <p class="text-slate-gray mb-4">Led on-site diagnostics<p class="text-slate-gray mb-4">Built standardized E2E diagnostics framework targeting high-warranty Noisy DTCs across TPMS, Key Fob, and VIN Authentication.</p> triage and supplier integration for high-stakes vehicle launches.</p>
+                            <div class="tag-row d-flex flex-wrap gap-2 mb-4">
+                                <span class="method-tag">NVH Analysis</span>
+                                <span class="method-tag">Extreme Temp Testing</span>
+                                <span class="method-tag">Feature Validation</span>
+                            </div>
+                            <div class="kpi-row d-flex flex-wrap gap-3 mb-4">
+                                <div class="kpi-pill">
+                                    <i class="bi bi-graph-up"></i>
+                                    <span>Impact</span>
+                                </div>
+                                <div class="kpi-pill">
+                                    <i class="bi bi-globe"></i>
+                                    <span>Scope</span>
+                                </div>
+                            </div>
+                            <a href="projects.html" class="btn btn-outline-light btn-sm deep-dive-btn mt-auto">Deep Dive</a>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="col" data-aos="fade-up" data-aos-delay="200">
+                    <article class="glass-showcase-card h-100">
+                        <div class="project-header-img">
+                            <img src="images/Vehicle-Testing.jpg" alt="ECU Diagnostics Robustness">
+                        </div>
+                        <div class="card-body d-flex flex-column">
+                            <span class="card-category text-info mb-2">ECU Diagnostics Robustness</span>
+                            <h3 class="h5 fw-bold mb-2">ECU Diagnostics Robustness</h3>
+                            <div class="kpi-grid mb-3">
+                                <div class="kpi-item">
+                                    <span>-40°C</span>
+                                    <label>Env. Testing</label>
+                                </div>
+                                <div class="kpi-item">
+                                    <span>25+</span>
+                                    <label>Lessons Learned</label>
+                                </div>
+                            </div>
+                            <p class="text-slate-gray mb-4">Launched NVH lab testing protocol that cut Power Running Board noise 36% and eliminated ≈$2M in hardware cost per model year.</p>
+                            <div class="tag-row d-flex flex-wrap gap-2 mb-4">
+                                <span class="method-tag">Requirements Engineering</span>
+                                <span class="method-tag">BCM</span>
+                                <span class="method-tag">Process Ownership</span>
+                            </div>
+                            <div class="kpi-row d-flex flex-wrap gap-3 mb-4">
+                                <div class="kpi-pill">
+                                    <i class="bi bi-graph-up"></i>
+                                    <span>Impact</span>
+                                </div>
+                                <div class="kpi-pill">
+                                    <i class="bi bi-globe"></i>
+                                    <span>Scope</span>
+                                </div>
+                            </div>
+                            <a href="projects.html" class="btn btn-outline-light btn-sm deep-dive-btn mt-auto">Deep Dive</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
         </section>
         
-        <section>
-            <h2>My Work</h2>
-            <p>Here are some of the projects I have worked on:</p>
-            <ul>
-                <li><a href="projects.html">View Projects</a></li>
-            </ul>
+        <!-- TIMELINE SECTION -->
+        <section id="timeline" class="experience-timeline mb-5" data-aos="fade-up">
+            <h2 class="section-title">Career Timeline</h2>
+
+            <div class="timeline-track">
+                <div class="timeline-fill"></div>
+
+                <div class="timeline-event timeline-event-left" data-year="2025">
+                    <div class="timeline-content card">
+                        <div class="card-body">
+                                <div class="timeline-metadata">
+                                    <span>July 2025 – Present</span> | <span>Naucalpan de Juarez, México</span>
+                                </div>
+                                <h3 class="h5 fw-bold">Diagnostics Design Engineer</h3>
+                                <p class="text-primary mb-1">Ford Motor Company – GTBC Mx</p>
+                                <p class="mb-0">Spearheading the E2E ECU Diagnostics Robustness project, delivering 150+ requirements and targeting high-warranty Noisy DTCs across TPMS, Key Fob, and VIN Authentication systems.</p>
+                                <div class="timeline-details" style="display: none;">
+                                    <ul class="mt-2 ps-3">
+                                        <li>Authored 23+ requirements eliminating false-positive DTC triggers, reducing future service costs.</li>
+                                        <li>Bridging Architecture, SW, and Module D&R teams to close diagnostic coverage gaps.</li>
+                                        <li>Designing next-gen Enhanced Data Recording methods to optimize engineering troubleshooting.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+
+                <div class="timeline-event timeline-event-right" data-year="2023">
+                    <div class="timeline-content card">
+                        <div class="card-body">
+                            <div class="timeline-metadata">
+                                <span>Sept 2021 – July 2025</span> | <span>Naucalpan de Juarez, México · USA Rotations</span>
+                            </div>
+                            <h3 class="h5 fw-bold">Feature Systems Engineer</h3>
+                            <p class="text-primary mb-1">Ford Motor Company – GTBC Mx</p>
+                            <p class="mb-0">Led Power Running Boards, Onboard Scales & Smart Hitch, and Automatic Vehicle Shutdown from early concept to global launch — authoring ≈700 requirements and 400+ test cases.</p>
+                            <div class="timeline-details" style="display: none;">
+                                <ul class="mt-2 ps-3">
+                                    <li>Launched NVH lab test cutting PRB noise 36% and saving ≈$2 M per model year.</li>
+                                    <li>Cut PRB warranty spend ≈$1.4 M (23MY baseline); zero open critical issues at launch.</li>
+                                    <li>Filed 12 innovation disclosures and mentored 6 engineers into the SE organization.</li>
+                                    <li>Managed US plant rotations (DTP/KTP) sustaining 98%+ first-time-through build quality.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-event timeline-event-left" data-year="2021">
+                    <div class="timeline-content card">
+                        <div class="card-body">
+                            <div class="timeline-metadata">
+                                    <span>July 2020 – June 2021</span> | <span>San Luis Potosí, México</span>
+                                </div>
+                                <h3 class="h5 fw-bold">Quality Management Engineer</h3>
+                                <p class="text-primary mb-1">BMW Group – Plant San Luis Potosí</p>
+                                <p class="mb-0">Supported G42 Conformity-of-Production and ISO 9001 audits — both passed with zero major findings — while deploying a Power BI/Power Apps QMS suite.</p>
+                                <div class="timeline-details" style="display: none;">
+                                    <ul class="mt-2 ps-3">
+                                        <li>Deployed Power BI/Power Apps QMS suite, cutting issue-closure time by 30%.</li>
+                                        <li>Launched "Quality Mindset" campaign training 120+ process leaders, boosting proactive defect containment 25% in six months.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT SECTION -->
+        <section id="contact" class="mb-5" data-aos="fade-up">
+            <h2 class="section-title">Let's Connect</h2>
+            <div class="row g-4">
+                <div class="col-md-5">
+                    <p class="text-muted mb-4">Open to engineering collaborations, systems consulting, and graduate program conversations. Based in México — open to relocation.</p>
+                    <div class="d-flex flex-column gap-3">
+                        <a href="mailto:avargas.emundo@gmail.com" class="contact-link">
+                            <i class="bi bi-envelope-fill"></i>
+                            avargas.emundo@gmail.com
+                        </a>
+                        <a href="https://www.linkedin.com/in/av-m/" target="_blank" class="contact-link">
+                            <i class="bi bi-linkedin"></i>
+                            LinkedIn Profile
+                        </a>
+                        <span class="contact-link non-link">
+                            <i class="bi bi-geo-alt-fill"></i>
+                            Naucalpan de Juárez, México · Open to relocation
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SUMMARY SECTION -->
+        <section id="summary" class="split-summary mb-5" data-aos="fade-up">
+            <div class="row align-items-center g-4">
+                <div class="col-lg-6">
+                    <div class="summary-copy">
+                        <p class="text-uppercase text-muted mb-3">Professional Overview</p>
+                        <h2 class="display-6 fw-bold mb-4">Systems thinking meets diagnostics design.</h2>
+                        <p class="mb-4">I build automotive diagnostics experiences with a clear focus on resilience, traceability, and measurable system outcomes. My work bridges complex ECU architecture, requirements governance, and real-world validation in global OEM programs.</p>
+                        <p class="mb-4">This portfolio is a curated snapshot of technical leadership, collaborative program delivery, and the practical engineering mindset that turns requirements into robust, testable solutions.</p>
+                        <a href="about.html" class="btn btn-outline-primary btn-lg">Read More</a>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="skill-cloud p-4">
+                        <div class="cloud-graphic">
+                            <svg viewBox="0 0 360 260" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Systems architecture diagram">
+                                <circle cx="70" cy="70" r="28" fill="#6c8ec4" opacity=".95"/>
+                                <circle cx="290" cy="60" r="22" fill="#25314a" opacity=".9"/>
+                                <circle cx="190" cy="190" r="32" fill="#6c8ec4" opacity=".88"/>
+                                <circle cx="90" cy="210" r="18" fill="#25314a" opacity=".85"/>
+                                <circle cx="250" cy="140" r="16" fill="#6c8ec4" opacity=".9"/>
+                                <path d="M98 85 C140 60 210 80 250 70" stroke="#25314a" stroke-width="3" fill="none" stroke-linecap="round"/>
+                                <path d="M80 90 C110 160 130 190 180 170" stroke="#6c8ec4" stroke-width="3" fill="none" stroke-linecap="round"/>
+                                <path d="M210 180 C230 130 260 120 290 140" stroke="#25314a" stroke-width="3" fill="none" stroke-linecap="round"/>
+                                <path d="M110 220 C165 205 210 170 250 155" stroke="#6c8ec4" stroke-width="3" fill="none" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                        <div class="skill-cloud-tags">
+                            <span class="skill-cloud-tag">MBSE</span>
+                            <span class="skill-cloud-tag">Diagnostics</span>
+                            <span class="skill-cloud-tag">Traceability</span>
+                            <span class="skill-cloud-tag">CANalyzer</span>
+                            <span class="skill-cloud-tag">Python</span>
+                            <span class="skill-cloud-tag">Leadership</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
     </main>
-    
-    <footer>
-        <p>&copy; [Current Year] [Your Name]. All rights reserved.</p>
+
+    <!-- FOOTER -->
+    <footer class="text-center py-4">
+        <p>&copy; 2026 Angel Vargas. All rights reserved.</p>
     </footer>
-    
+
+    <nav class="floating-dock" aria-label="Quick navigation">
+        <a href="index.html" class="dock-link">
+            <i class="bi bi-house-fill"></i>
+            <span class="dock-tooltip">Home</span>
+        </a>
+        <a href="projects.html" class="dock-link">
+            <i class="bi bi-briefcase-fill"></i>
+            <span class="dock-tooltip">Projects</span>
+        </a>
+        <a href="about.html" class="dock-link">
+            <i class="bi bi-person-fill"></i>
+            <span class="dock-tooltip">About</span>
+        </a>
+        <a href="#contact" class="dock-link">
+            <i class="bi bi-envelope-fill"></i>
+            <span class="dock-tooltip">Contact</span>
+        </a>
+        <button id="themeToggle" class="dock-link" type="button" aria-label="Toggle theme">
+            <i id="themeToggleIcon" class="bi bi-moon-fill"></i>
+            <span class="dock-tooltip">Theme</span>
+        </button>
+    </nav>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="js/script.js"></script>
 </body>
 </html>
