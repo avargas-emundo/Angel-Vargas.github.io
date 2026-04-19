@@ -3,57 +3,511 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Portfolio</title>
+    <title>Angel Vargas — Automotive Systems Engineer</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/components.css">
     <link rel="stylesheet" href="css/pages.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Barlow:wght@300;400;500;600;700&family=Barlow+Condensed:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+
+        /* ── Base overrides ── */
+        body {
+            font-family: 'Barlow', sans-serif;
+            background-color: #faf9f6;
+            color: #1a1a2e;
+        }
+        body.dark-mode {
+            background-color: #111318;
+            color: #e2e8f0;
+        }
+
+        /* ── Shared section rhythm ── */
+        .section-rule {
+            height: 1px;
+            background: rgba(0,0,0,0.07);
+            margin: 0;
+        }
+        body.dark-mode .section-rule {
+            background: rgba(255,255,255,0.05);
+        }
+
+        .section-eyebrow {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: #6c8ec4;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        /* ══════════════════════════════
+           HERO
+        ══════════════════════════════ */
+        #hero {
+            padding-top: 7rem;
+            padding-bottom: 5rem;
+            margin-top: 0;
+        }
+
+        .hero-name {
+            font-family: 'Lora', serif;
+            font-size: clamp(3rem, 7vw, 5.5rem);
+            font-weight: 400;
+            line-height: 1.05;
+            color: #0d0f14;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.5px;
+        }
+
+        body.dark-mode .hero-name { color: #f1f5f9; }
+
+        .hero-name em {
+            font-style: italic;
+            color: #6c8ec4;
+        }
+
+        .hero-role {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #6c8ec4;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-lead {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #4a5568;
+            max-width: 520px;
+            margin-bottom: 2.5rem;
+        }
+
+        body.dark-mode .hero-lead { color: #94a3b8; }
+
+        .hero-cta-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 3rem;
+        }
+
+        .btn-hero-primary {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            padding: 0.85rem 2rem;
+            background: #0d0f14;
+            color: #ffffff;
+            border: none;
+            border-radius: 6px;
+            text-decoration: none;
+            transition: background 0.2s ease, transform 0.2s ease;
+        }
+
+        .btn-hero-primary:hover {
+            background: #25314a;
+            color: #ffffff;
+            transform: translateY(-2px);
+            text-decoration: none;
+        }
+
+        body.dark-mode .btn-hero-primary {
+            background: #ffffff;
+            color: #0d0f14;
+        }
+
+        body.dark-mode .btn-hero-primary:hover {
+            background: #e2e8f0;
+            color: #0d0f14;
+        }
+
+        .btn-hero-secondary {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            padding: 0.85rem 2rem;
+            background: transparent;
+            color: #0d0f14;
+            border: 1px solid rgba(0,0,0,0.2);
+            border-radius: 6px;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .btn-hero-secondary:hover {
+            border-color: #6c8ec4;
+            color: #6c8ec4;
+            text-decoration: none;
+        }
+
+        body.dark-mode .btn-hero-secondary {
+            color: #e2e8f0;
+            border-color: rgba(255,255,255,0.15);
+        }
+
+        body.dark-mode .btn-hero-secondary:hover {
+            border-color: #6c8ec4;
+            color: #6c8ec4;
+        }
+
+        .hero-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+
+        .hero-badge {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: #9ca3af;
+        }
+
+        .hero-badge i { color: #6c8ec4; }
+
+        /* Hero image */
+        .hero-visual {
+            border-radius: 1.5rem;
+            overflow: hidden;
+            aspect-ratio: 4/3;
+            position: relative;
+        }
+
+        .hero-visual::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg,
+                rgba(108,142,196,0.15) 0%,
+                transparent 60%);
+            pointer-events: none;
+        }
+
+        .hero-tech-diagram {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.6s ease;
+        }
+
+        .hero-visual:hover .hero-tech-diagram {
+            transform: scale(1.03);
+        }
+
+        /* ══════════════════════════════
+           ABOUT PREVIEW
+        ══════════════════════════════ */
+        #about {
+            padding: 5rem 0;
+        }
+
+        #about h2 {
+            font-family: 'Lora', serif;
+            font-size: clamp(1.8rem, 4vw, 2.8rem);
+            font-weight: 500;
+            color: #0d0f14;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+
+        body.dark-mode #about h2 { color: #f1f5f9; }
+
+        #about h2 em {
+            font-style: italic;
+            color: #6c8ec4;
+        }
+
+        #about p {
+            font-size: 1rem;
+            line-height: 1.85;
+            color: #4a5568;
+        }
+
+        body.dark-mode #about p { color: #94a3b8; }
+
+        /* ══════════════════════════════
+           TECHNICAL SHOWCASE
+        ══════════════════════════════ */
+        #technical-showcase {
+            padding: 5rem 0;
+        }
+
+        #technical-showcase h2 {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 900;
+            text-transform: uppercase;
+            color: #0d0f14;
+            letter-spacing: -0.5px;
+            margin-bottom: 0.5rem;
+            position: relative;
+        }
+
+        body.dark-mode #technical-showcase h2 { color: #f1f5f9; }
+
+        #technical-showcase h2::after {
+            content: "";
+            display: block;
+            width: 48px;
+            height: 3px;
+            background: #6c8ec4;
+            border-radius: 2px;
+            margin: 0.75rem 0 2.5rem;
+        }
+
+        /* Showcase cards — unified with page style */
+        .glass-showcase-card {
+            background: #ffffff;
+            border: 1px solid rgba(0,0,0,0.07);
+            border-radius: 14px;
+            overflow: hidden;
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+            display: flex;
+            flex-direction: column;
+            min-height: 520px;
+        }
+
+        body.dark-mode .glass-showcase-card {
+            background: #1a1d24;
+            border-color: rgba(255,255,255,0.05);
+        }
+
+        .glass-showcase-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .card-category {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .glass-showcase-card .card-body h3 {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #0d0f14;
+            min-height: auto;
+            margin-bottom: 0.5rem;
+        }
+
+        body.dark-mode .glass-showcase-card .card-body h3 { color: #f1f5f9; }
+
+        .glass-showcase-card p {
+            font-size: 0.9rem;
+            line-height: 1.7;
+            color: #4a5568;
+        }
+
+        body.dark-mode .glass-showcase-card p { color: #94a3b8; }
+
+        /* ══════════════════════════════
+           TIMELINE
+        ══════════════════════════════ */
+        #timeline {
+            padding: 5rem 0;
+        }
+
+        #timeline h2 {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 900;
+            text-transform: uppercase;
+            color: #0d0f14;
+            letter-spacing: -0.5px;
+            position: relative;
+        }
+
+        body.dark-mode #timeline h2 { color: #f1f5f9; }
+
+        #timeline h2::after {
+            content: "";
+            display: block;
+            width: 48px;
+            height: 3px;
+            background: #6c8ec4;
+            border-radius: 2px;
+            margin: 0.75rem 0 2.5rem;
+        }
+
+        .timeline-content.card h3 {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* ══════════════════════════════
+           CONTACT
+        ══════════════════════════════ */
+        #contact {
+            padding: 5rem 0;
+        }
+
+        #contact h2 {
+            font-family: 'Lora', serif;
+            font-size: clamp(1.8rem, 4vw, 2.8rem);
+            font-weight: 500;
+            color: #0d0f14;
+            margin-bottom: 0.5rem;
+        }
+
+        body.dark-mode #contact h2 { color: #f1f5f9; }
+
+        #contact h2::after { display: none; }
+
+        /* ══════════════════════════════
+           SUMMARY / SKILL CLOUD
+        ══════════════════════════════ */
+        #summary {
+            padding: 5rem 0;
+        }
+
+        .summary-copy h2 {
+            font-family: 'Lora', serif;
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            font-weight: 500;
+            font-style: italic;
+            color: #0d0f14;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+
+        body.dark-mode .summary-copy h2 { color: #f1f5f9; }
+
+        .summary-copy p {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: #4a5568;
+        }
+
+        body.dark-mode .summary-copy p { color: #94a3b8; }
+
+        .summary-copy .text-uppercase {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 4px;
+            color: #6c8ec4 !important;
+        }
+
+        .btn-read-more {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 0.82rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            padding: 0.75rem 1.75rem;
+            background: transparent;
+            color: #0d0f14;
+            border: 1px solid rgba(0,0,0,0.2);
+            border-radius: 6px;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .btn-read-more:hover {
+            border-color: #6c8ec4;
+            color: #6c8ec4;
+            text-decoration: none;
+        }
+
+        body.dark-mode .btn-read-more {
+            color: #e2e8f0;
+            border-color: rgba(255,255,255,0.15);
+        }
+
+        /* ══════════════════════════════
+           FOOTER
+        ══════════════════════════════ */
+        footer {
+            border-top: 1px solid rgba(0,0,0,0.07);
+            color: #9ca3af;
+            font-size: 0.85rem;
+        }
+
+        body.dark-mode footer {
+            border-color: rgba(255,255,255,0.05);
+        }
+
+        footer p { color: #9ca3af; }
+
+    </style>
 </head>
 <body>
     <main class="container">
-        <section id="hero" class="pt-5 mt-5" data-aos="fade-up">
-            <div class="row align-items-center gy-4">
+
+        <!-- ══════════════════════════════
+             HERO
+        ══════════════════════════════ -->
+        <section id="hero" data-aos="fade-up">
+            <div class="row align-items-center gy-5">
                 <div class="col-md-7">
-                    <h1 class="display-4 fw-bold">Angel Vargas</h1>
-                    <h2 class="h3 text-primary">Diagnostics Design Engineer | Systems Integration Lead</h2>
-                    <p class="lead">Building robust diagnostics systems and leading cross-functional engineering programs with clarity, precision, and technical depth.</p>
-                    <div class="d-flex flex-wrap gap-3">
-                        <a href="projects.html" class="btn btn-primary btn-lg hero-btn">Explore My Work</a>
-                        <a href="#contact" class="btn btn-outline-primary btn-lg hero-btn">Contact</a>
+                    <span class="section-eyebrow">Automotive Systems Engineer</span>
+                    <h1 class="hero-name">Angel<br><em>Vargas.</em></h1>
+                    <p class="hero-role">Diagnostics Design · Systems Integration · Global OEM</p>
+                    <p class="hero-lead">Building diagnostic systems that matter — from legacy documentation to global launch, from requirements to real-world impact. Six years, three OEMs, one clear focus: engineering that delivers.</p>
+                    <div class="hero-cta-group">
+                        <a href="projects.html" class="btn-hero-primary">Explore My Work</a>
+                        <a href="#contact" class="btn-hero-secondary">Get in Touch</a>
                     </div>
-                    <div class="hero-highlights d-flex flex-wrap align-items-center gap-4 mt-4">
-                        <span class="d-flex align-items-center text-muted">
-                            <i class="bi bi-speedometer2 me-2"></i>
-                            6+ Years Automotive Exp
+                    <div class="hero-badges">
+                        <span class="hero-badge">
+                            <i class="bi bi-speedometer2"></i>
+                            6+ Years Automotive
                         </span>
-                        <span class="d-flex align-items-center text-muted">
-                            <i class="bi bi-award me-2"></i>
+                        <span class="hero-badge">
+                            <i class="bi bi-award"></i>
                             Six Sigma Green Belt
                         </span>
-                        <span class="d-flex align-items-center text-muted">
-                            <i class="bi bi-globe2 me-2"></i>
+                        <span class="hero-badge">
+                            <i class="bi bi-globe2"></i>
                             Global Program Lead
                         </span>
                     </div>
                 </div>
                 <div class="col-md-5">
-                    <div class="hero-visual rounded-4 overflow-hidden">
+                    <div class="hero-visual">
                         <img src="images/Mustang-Wall.jpg" alt="Automotive Engineering" class="hero-tech-diagram">
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- ABOUT SECTION -->
-        <section id="about" class="my-5" data-aos="fade-up">
+        <div class="section-rule"></div>
+
+        <!-- ══════════════════════════════
+             ABOUT PREVIEW
+        ══════════════════════════════ -->
+        <section id="about" data-aos="fade-up">
             <div class="row align-items-center gy-4">
                 <div class="col-md-7">
-                    <h2 class="section-title">About Me</h2>
-                    <p>Welcome to my portfolio! I am Angel Vargas, an Automotive Systems Engineer with over five years of experience at global OEMs including Ford Motor Company and BMW Group, specializing in diagnostics robustness, systems integration, and vehicle feature validation.</p>
-                    <p>My work focuses on translating field failures and customer-impact issues into structured requirements, validation strategies, and diagnostic improvements that enhance system reliability across the vehicle lifecycle. I have led cross-functional initiatives bridging architecture, software, and validation teams in international vehicle programs.</p>
-                    <p>I am seeking a professionally oriented Master’s degree to deepen my analytical foundation in vehicle systems, diagnostics, and control strategies for next-generation automotive platforms.</p>
+                    <span class="section-eyebrow">About</span>
+                    <h2>The engineer.<br>The <em>human</em> behind it.</h2>
+                    <p>I am Angel Vargas — born in Guerrero, raised across five Mexican cities, trained at IPN, and shaped by every place I've worked and every team I've led. I specialize in automotive diagnostics and systems integration, with experience at Ford Motor Company and BMW Group across global vehicle programs.</p>
+                    <p>My work connects the technical depth of ECU architecture and requirements governance with the human side of engineering: mentoring, cross-functional leadership, and the belief that what we build should be felt, not just measured.</p>
+                    <a href="about.html" class="btn-read-more mt-3 d-inline-block">The Full Story</a>
                 </div>
                 <div class="col-md-5">
                     <div class="about-visual rounded-4 p-4">
@@ -83,18 +537,24 @@
             </div>
         </section>
 
-        <!-- FEATURED PROJECTS SECTION -->
-        <section id="technical-showcase" class="technical-showcase mb-5" data-aos="fade-up">
-            <h2 class="section-title">Technical Showcase</h2>
+        <div class="section-rule"></div>
+
+        <!-- ══════════════════════════════
+             TECHNICAL SHOWCASE
+        ══════════════════════════════ -->
+        <section id="technical-showcase" class="technical-showcase" data-aos="fade-up">
+            <span class="section-eyebrow">Selected Work</span>
+            <h2>Technical Showcase</h2>
             <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4">
+
                 <div class="col" data-aos="fade-up">
                     <article class="glass-showcase-card h-100">
                         <div class="project-header-img">
-                            <img src="images/Navigator-PRB.jpg" alt="2025 Program Launch">
+                            <img src="images/Expedition-Wall.jpg" alt="2025 Program Launch">
                         </div>
-                        <div class="card-body d-flex flex-column">
+                        <div class="card-body d-flex flex-column p-4">
                             <span class="card-category text-info mb-2">2025 Navigator/Expedition Launch</span>
-                            <h3 class="h5 fw-bold mb-2">2025 Program Launch</h3>
+                            <h3 class="mb-2">2025 Program Launch</h3>
                             <div class="kpi-grid mb-3">
                                 <div class="kpi-item">
                                     <span>≥98%</span>
@@ -105,23 +565,13 @@
                                     <label>Program Launch</label>
                                 </div>
                             </div>
-                            <p class="text-slate-gray mb-4">Managed US plant rotations ensuring 98%+ first-time-through build quality for Navigator & Expedition Job #1.</p>
+                            <p class="mb-4">Managed US plant rotations ensuring 98%+ first-time-through build quality for Navigator & Expedition Job #1.</p>
                             <div class="tag-row d-flex flex-wrap gap-2 mb-4">
                                 <span class="method-tag">Supplier Onboarding</span>
                                 <span class="method-tag">On-site Triage</span>
                                 <span class="method-tag">Launch Engineering</span>
                             </div>
-                            <div class="kpi-row d-flex flex-wrap gap-3 mb-4">
-                                <div class="kpi-pill">
-                                    <i class="bi bi-graph-up"></i>
-                                    <span>Impact</span>
-                                </div>
-                                <div class="kpi-pill">
-                                    <i class="bi bi-globe"></i>
-                                    <span>Scope</span>
-                                </div>
-                            </div>
-                            <a href="projects.html" class="btn btn-outline-light btn-sm deep-dive-btn mt-auto">Deep Dive</a>
+                            <a href="projects.html" class="deep-dive-btn btn btn-sm mt-auto">Deep Dive →</a>
                         </div>
                     </article>
                 </div>
@@ -129,38 +579,28 @@
                 <div class="col" data-aos="fade-up" data-aos-delay="100">
                     <article class="glass-showcase-card h-100">
                         <div class="project-header-img">
-                            <img src="images/PRB-NVH.jpg" alt="Acoustic & Thermal Optimization">
+                            <img src="images/26F150.jpg" alt="Acoustic & Thermal Optimization">
                         </div>
-                        <div class="card-body d-flex flex-column">
-                            <span class="card-category text-warning mb-2">Acoustic/Thermal Optimization</span>
-                            <h3 class="h5 fw-bold mb-2">Acoustic & Thermal Optimization</h3>
+                        <div class="card-body d-flex flex-column p-4">
+                            <span class="card-category text-warning mb-2">Acoustic / Thermal Optimization</span>
+                            <h3 class="mb-2">Acoustic & Thermal Optimization</h3>
                             <div class="kpi-grid mb-3">
                                 <div class="kpi-item">
-                                    <span>150+</span>
-                                    <label>Requirements</label>
+                                    <span>36%</span>
+                                    <label>Noise Reduction</label>
                                 </div>
                                 <div class="kpi-item">
-                                    <span>BCM</span>
-                                    <label>Process Owner</label>
+                                    <span>≈$2M</span>
+                                    <label>Saved / Model Year</label>
                                 </div>
                             </div>
-                            <p class="text-slate-gray mb-4">Led on-site diagnostics<p class="text-slate-gray mb-4">Built standardized E2E diagnostics framework targeting high-warranty Noisy DTCs across TPMS, Key Fob, and VIN Authentication.</p> triage and supplier integration for high-stakes vehicle launches.</p>
+                            <p class="mb-4">Launched NVH lab testing protocol that cut Power Running Board noise 36% and eliminated ≈$2M in hardware cost per model year.</p>
                             <div class="tag-row d-flex flex-wrap gap-2 mb-4">
                                 <span class="method-tag">NVH Analysis</span>
                                 <span class="method-tag">Extreme Temp Testing</span>
                                 <span class="method-tag">Feature Validation</span>
                             </div>
-                            <div class="kpi-row d-flex flex-wrap gap-3 mb-4">
-                                <div class="kpi-pill">
-                                    <i class="bi bi-graph-up"></i>
-                                    <span>Impact</span>
-                                </div>
-                                <div class="kpi-pill">
-                                    <i class="bi bi-globe"></i>
-                                    <span>Scope</span>
-                                </div>
-                            </div>
-                            <a href="projects.html" class="btn btn-outline-light btn-sm deep-dive-btn mt-auto">Deep Dive</a>
+                            <a href="projects.html" class="deep-dive-btn btn btn-sm mt-auto">Deep Dive →</a>
                         </div>
                     </article>
                 </div>
@@ -168,84 +608,79 @@
                 <div class="col" data-aos="fade-up" data-aos-delay="200">
                     <article class="glass-showcase-card h-100">
                         <div class="project-header-img">
-                            <img src="images/Vehicle-Testing.jpg" alt="ECU Diagnostics Robustness">
+                            <img src="images/BMW2021.jpg" alt="ECU Diagnostics Robustness">
                         </div>
-                        <div class="card-body d-flex flex-column">
+                        <div class="card-body d-flex flex-column p-4">
                             <span class="card-category text-info mb-2">ECU Diagnostics Robustness</span>
-                            <h3 class="h5 fw-bold mb-2">ECU Diagnostics Robustness</h3>
+                            <h3 class="mb-2">ECU Diagnostics Robustness</h3>
                             <div class="kpi-grid mb-3">
                                 <div class="kpi-item">
-                                    <span>-40°C</span>
-                                    <label>Env. Testing</label>
+                                    <span>150+</span>
+                                    <label>Requirements</label>
                                 </div>
                                 <div class="kpi-item">
-                                    <span>25+</span>
-                                    <label>Lessons Learned</label>
+                                    <span>23+</span>
+                                    <label>Noisy DTC Reqs</label>
                                 </div>
                             </div>
-                            <p class="text-slate-gray mb-4">Launched NVH lab testing protocol that cut Power Running Board noise 36% and eliminated ≈$2M in hardware cost per model year.</p>
+                            <p class="mb-4">Built standardized E2E diagnostics framework targeting high-warranty Noisy DTCs across TPMS, Key Fob, and VIN Authentication.</p>
                             <div class="tag-row d-flex flex-wrap gap-2 mb-4">
                                 <span class="method-tag">Requirements Engineering</span>
-                                <span class="method-tag">BCM</span>
-                                <span class="method-tag">Process Ownership</span>
+                                <span class="method-tag">DTC Methodology</span>
+                                <span class="method-tag">Gap Analysis</span>
                             </div>
-                            <div class="kpi-row d-flex flex-wrap gap-3 mb-4">
-                                <div class="kpi-pill">
-                                    <i class="bi bi-graph-up"></i>
-                                    <span>Impact</span>
-                                </div>
-                                <div class="kpi-pill">
-                                    <i class="bi bi-globe"></i>
-                                    <span>Scope</span>
-                                </div>
-                            </div>
-                            <a href="projects.html" class="btn btn-outline-light btn-sm deep-dive-btn mt-auto">Deep Dive</a>
+                            <a href="projects.html" class="deep-dive-btn btn btn-sm mt-auto">Deep Dive →</a>
                         </div>
                     </article>
                 </div>
+
             </div>
         </section>
-        
-        <!-- TIMELINE SECTION -->
-        <section id="timeline" class="experience-timeline mb-5" data-aos="fade-up">
-            <h2 class="section-title">Career Timeline</h2>
 
+        <div class="section-rule"></div>
+
+        <!-- ══════════════════════════════
+             CAREER TIMELINE
+        ══════════════════════════════ -->
+        <section id="timeline" class="experience-timeline" data-aos="fade-up">
+            <span class="section-eyebrow">Experience</span>
+            <h2>Career Timeline</h2>
             <div class="timeline-track">
                 <div class="timeline-fill"></div>
 
                 <div class="timeline-event timeline-event-left" data-year="2025">
                     <div class="timeline-content card">
                         <div class="card-body">
-                                <div class="timeline-metadata">
-                                    <span>July 2025 – Present</span> | <span>Naucalpan de Juarez, México</span>
-                                </div>
-                                <h3 class="h5 fw-bold">Diagnostics Design Engineer</h3>
-                                <p class="text-primary mb-1">Ford Motor Company – GTBC Mx</p>
-                                <p class="mb-0">Spearheading the E2E ECU Diagnostics Robustness project, delivering 150+ requirements and targeting high-warranty Noisy DTCs across TPMS, Key Fob, and VIN Authentication systems.</p>
-                                <div class="timeline-details" style="display: none;">
-                                    <ul class="mt-2 ps-3">
-                                        <li>Authored 23+ requirements eliminating false-positive DTC triggers, reducing future service costs.</li>
-                                        <li>Bridging Architecture, SW, and Module D&R teams to close diagnostic coverage gaps.</li>
-                                        <li>Designing next-gen Enhanced Data Recording methods to optimize engineering troubleshooting.</li>
-                                    </ul>
-                                </div>
+                            <div class="timeline-metadata">
+                                <span>July 2025 – Present</span> | <span>Naucalpan de Juárez, México</span>
                             </div>
+                            <h3 class="h5 fw-bold">Diagnostics Design Engineer</h3>
+                            <p class="text-primary mb-1">Ford Motor Company – GTBC Mx</p>
+                            <p class="mb-0">Spearheading the E2E ECU Diagnostics Robustness project, delivering 150+ requirements and targeting high-warranty Noisy DTCs across TPMS, Key Fob, and VIN Authentication systems.</p>
+                            <div class="timeline-details" style="display: none;">
+                                <ul class="mt-2 ps-3">
+                                    <li>Authored 23+ requirements eliminating false-positive DTC triggers, reducing future service costs.</li>
+                                    <li>Bridging Architecture, SW, and Module D&R teams to close diagnostic coverage gaps.</li>
+                                    <li>Designing next-gen Enhanced Data Recording methods to optimize engineering troubleshooting.</li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <div class="timeline-event timeline-event-right" data-year="2023">
+                <div class="timeline-event timeline-event-right" data-year="2021">
                     <div class="timeline-content card">
                         <div class="card-body">
                             <div class="timeline-metadata">
-                                <span>Sept 2021 – July 2025</span> | <span>Naucalpan de Juarez, México · USA Rotations</span>
+                                <span>Sept 2021 – July 2025</span> | <span>Naucalpan de Juárez, México · USA Rotations</span>
                             </div>
                             <h3 class="h5 fw-bold">Feature Systems Engineer</h3>
                             <p class="text-primary mb-1">Ford Motor Company – GTBC Mx</p>
                             <p class="mb-0">Led Power Running Boards, Onboard Scales & Smart Hitch, and Automatic Vehicle Shutdown from early concept to global launch — authoring ≈700 requirements and 400+ test cases.</p>
                             <div class="timeline-details" style="display: none;">
                                 <ul class="mt-2 ps-3">
-                                    <li>Launched NVH lab test cutting PRB noise 36% and saving ≈$2 M per model year.</li>
-                                    <li>Cut PRB warranty spend ≈$1.4 M (23MY baseline); zero open critical issues at launch.</li>
+                                    <li>Launched NVH lab test cutting PRB noise 36% and saving ≈$2M per model year.</li>
+                                    <li>Cut PRB warranty spend ≈$1.4M (23MY baseline); zero open critical issues at launch.</li>
                                     <li>Filed 12 innovation disclosures and mentored 6 engineers into the SE organization.</li>
                                     <li>Managed US plant rotations (DTP/KTP) sustaining 98%+ first-time-through build quality.</li>
                                 </ul>
@@ -254,32 +689,38 @@
                     </div>
                 </div>
 
-                <div class="timeline-event timeline-event-left" data-year="2021">
+                <div class="timeline-event timeline-event-left" data-year="2020">
                     <div class="timeline-content card">
                         <div class="card-body">
                             <div class="timeline-metadata">
-                                    <span>July 2020 – June 2021</span> | <span>San Luis Potosí, México</span>
-                                </div>
-                                <h3 class="h5 fw-bold">Quality Management Engineer</h3>
-                                <p class="text-primary mb-1">BMW Group – Plant San Luis Potosí</p>
-                                <p class="mb-0">Supported G42 Conformity-of-Production and ISO 9001 audits — both passed with zero major findings — while deploying a Power BI/Power Apps QMS suite.</p>
-                                <div class="timeline-details" style="display: none;">
-                                    <ul class="mt-2 ps-3">
-                                        <li>Deployed Power BI/Power Apps QMS suite, cutting issue-closure time by 30%.</li>
-                                        <li>Launched "Quality Mindset" campaign training 120+ process leaders, boosting proactive defect containment 25% in six months.</li>
-                                    </ul>
-                                </div>
+                                <span>July 2020 – June 2021</span> | <span>San Luis Potosí, México</span>
                             </div>
+                            <h3 class="h5 fw-bold">Quality Management Engineer</h3>
+                            <p class="text-primary mb-1">BMW Group – Plant San Luis Potosí</p>
+                            <p class="mb-0">Supported G42 Conformity-of-Production and ISO 9001 audits — both passed with zero major findings — while deploying a Power BI/Power Apps QMS suite.</p>
+                            <div class="timeline-details" style="display: none;">
+                                <ul class="mt-2 ps-3">
+                                    <li>Deployed Power BI/Power Apps QMS suite, cutting issue-closure time by 30%.</li>
+                                    <li>Launched "Quality Mindset" campaign training 120+ process leaders, boosting proactive defect containment 25% in six months.</li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
                 </div>
+
             </div>
         </section>
 
-        <!-- CONTACT SECTION -->
-        <section id="contact" class="mb-5" data-aos="fade-up">
-            <h2 class="section-title">Let's Connect</h2>
+        <div class="section-rule"></div>
+
+        <!-- ══════════════════════════════
+             CONTACT
+        ══════════════════════════════ -->
+        <section id="contact" data-aos="fade-up">
             <div class="row g-4">
                 <div class="col-md-5">
+                    <span class="section-eyebrow">Contact</span>
+                    <h2>Let's Connect.</h2>
                     <p class="text-muted mb-4">Open to engineering collaborations, systems consulting, and graduate program conversations. Based in México — open to relocation.</p>
                     <div class="d-flex flex-column gap-3">
                         <a href="mailto:avargas.emundo@gmail.com" class="contact-link">
@@ -299,16 +740,20 @@
             </div>
         </section>
 
-        <!-- SUMMARY SECTION -->
-        <section id="summary" class="split-summary mb-5" data-aos="fade-up">
+        <div class="section-rule"></div>
+
+        <!-- ══════════════════════════════
+             SUMMARY / SKILL CLOUD
+        ══════════════════════════════ -->
+        <section id="summary" class="split-summary" data-aos="fade-up">
             <div class="row align-items-center g-4">
                 <div class="col-lg-6">
                     <div class="summary-copy">
                         <p class="text-uppercase text-muted mb-3">Professional Overview</p>
-                        <h2 class="display-6 fw-bold mb-4">Systems thinking meets diagnostics design.</h2>
-                        <p class="mb-4">I build automotive diagnostics experiences with a clear focus on resilience, traceability, and measurable system outcomes. My work bridges complex ECU architecture, requirements governance, and real-world validation in global OEM programs.</p>
+                        <h2>"Systems thinking meets diagnostics design."</h2>
+                        <p class="mb-3">I build automotive diagnostics experiences with a clear focus on resilience, traceability, and measurable system outcomes. My work bridges complex ECU architecture, requirements governance, and real-world validation in global OEM programs.</p>
                         <p class="mb-4">This portfolio is a curated snapshot of technical leadership, collaborative program delivery, and the practical engineering mindset that turns requirements into robust, testable solutions.</p>
-                        <a href="about.html" class="btn btn-outline-primary btn-lg">Read More</a>
+                        <a href="about.html" class="btn-read-more">Read More</a>
                     </div>
                 </div>
                 <div class="col-lg-6">
@@ -338,6 +783,7 @@
                 </div>
             </div>
         </section>
+
     </main>
 
     <!-- FOOTER -->
@@ -345,6 +791,7 @@
         <p>&copy; 2026 Angel Vargas. All rights reserved.</p>
     </footer>
 
+    <!-- FLOATING DOCK -->
     <nav class="floating-dock" aria-label="Quick navigation">
         <a href="index.html" class="dock-link">
             <i class="bi bi-house-fill"></i>

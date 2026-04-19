@@ -3,72 +3,719 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Project Case Study</title>
+    <title>Projects — Angel Vargas</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,300;0,400;0,600;0,700;0,900;1,300&family=Barlow+Condensed:wght@400;600;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/components.css">
     <link rel="stylesheet" href="css/pages.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <style>
+        /* ── Projects Page Overrides ── */
+        body {
+            font-family: 'Barlow', sans-serif;
+            background-color: #0d0f14;
+            color: #e8eaf0;
+        }
+
+        /* Page Header */
+        .projects-header {
+            padding: 6rem 0 4rem;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+        }
+
+        .projects-header .eyebrow {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: #6c8ec4;
+            margin-bottom: 1rem;
+        }
+
+        .projects-header h1 {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 900;
+            line-height: 0.95;
+            color: #ffffff;
+            text-transform: uppercase;
+            letter-spacing: -1px;
+        }
+
+        .projects-header h1 em {
+            font-style: italic;
+            font-weight: 300;
+            color: #6c8ec4;
+        }
+
+        .projects-header .header-desc {
+            max-width: 520px;
+            color: #8892a4;
+            font-size: 1.05rem;
+            line-height: 1.7;
+            margin-top: 1.5rem;
+        }
+
+        /* Case Study Block */
+        .case-study {
+            padding: 6rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            position: relative;
+        }
+
+        .case-study:last-child {
+            border-bottom: none;
+        }
+
+        .cs-index {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 8rem;
+            font-weight: 900;
+            color: rgba(255,255,255,0.04);
+            line-height: 1;
+            position: absolute;
+            top: 4rem;
+            right: 0;
+            user-select: none;
+            letter-spacing: -4px;
+        }
+
+        .cs-eyebrow {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #6c8ec4;
+            margin-bottom: 0.75rem;
+        }
+
+        .cs-title {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 900;
+            text-transform: uppercase;
+            color: #ffffff;
+            line-height: 1;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.5px;
+        }
+
+        .cs-subtitle {
+            font-size: 1rem;
+            color: #6c8ec4;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        .cs-lead {
+            font-size: 1.05rem;
+            color: #8892a4;
+            line-height: 1.75;
+            max-width: 540px;
+        }
+
+        /* KPI Strip */
+        .kpi-strip {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1px;
+            background: rgba(255,255,255,0.06);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 12px;
+            overflow: hidden;
+            margin: 2.5rem 0;
+        }
+
+        .kpi-block {
+            flex: 1;
+            min-width: 120px;
+            padding: 1.5rem 1.25rem;
+            background: #0d0f14;
+            text-align: center;
+            transition: background 0.2s ease;
+        }
+
+        .kpi-block:hover {
+            background: rgba(108, 142, 196, 0.08);
+        }
+
+        .kpi-block .kpi-value {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 2.2rem;
+            font-weight: 900;
+            color: #ffffff;
+            line-height: 1;
+            display: block;
+        }
+
+        .kpi-block .kpi-value.accent {
+            color: #6c8ec4;
+        }
+
+        .kpi-block .kpi-label {
+            font-size: 0.65rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #4a5568;
+            margin-top: 0.4rem;
+            display: block;
+        }
+
+        /* Story Columns */
+        .story-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1px;
+            background: rgba(255,255,255,0.06);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 2.5rem;
+        }
+
+        .story-col {
+            padding: 2rem 1.75rem;
+            background: #0d0f14;
+        }
+
+        .story-col-label {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #4a5568;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .story-col-label::before {
+            content: '';
+            display: inline-block;
+            width: 20px;
+            height: 1px;
+            background: #6c8ec4;
+        }
+
+        .story-col p {
+            font-size: 0.9rem;
+            color: #8892a4;
+            line-height: 1.7;
+            margin: 0;
+        }
+
+        /* Method Tags */
+        .cs-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 2rem;
+        }
+
+        .cs-tag {
+            padding: 0.35rem 0.85rem;
+            border: 1px solid rgba(108, 142, 196, 0.25);
+            border-radius: 4px;
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            color: #6c8ec4;
+            background: rgba(108, 142, 196, 0.05);
+        }
+
+        /* Methodology Section */
+        .methodology-block {
+            background: rgba(255,255,255,0.02);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 2.5rem 0;
+        }
+
+        .methodology-block h4 {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #4a5568;
+            margin-bottom: 1.5rem;
+        }
+
+        .method-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1rem;
+        }
+
+        .method-step {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .method-step-num {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 2rem;
+            font-weight: 900;
+            color: rgba(108, 142, 196, 0.3);
+            line-height: 1;
+        }
+
+        .method-step-title {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: #c8d0e0;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .method-step-desc {
+            font-size: 0.8rem;
+            color: #586070;
+            line-height: 1.5;
+        }
+
+        /* Taxonomy Block */
+        .taxonomy-block {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1px;
+            background: rgba(108, 142, 196, 0.15);
+            border: 1px solid rgba(108, 142, 196, 0.2);
+            border-radius: 12px;
+            overflow: hidden;
+            margin: 2rem 0;
+        }
+
+        .taxonomy-item {
+            padding: 1.75rem;
+            background: #0d0f14;
+        }
+
+        .taxonomy-item .t-num {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: #6c8ec4;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+        }
+
+        .taxonomy-item .t-title {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #ffffff;
+            text-transform: uppercase;
+            margin-bottom: 0.75rem;
+        }
+
+        .taxonomy-item .t-desc {
+            font-size: 0.8rem;
+            color: #586070;
+            line-height: 1.6;
+        }
+
+        /* Feature image */
+        .cs-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 12px;
+            filter: grayscale(20%) contrast(1.05);
+            transition: filter 0.4s ease;
+        }
+
+        .cs-image:hover {
+            filter: grayscale(0%) contrast(1.1);
+        }
+
+        .cs-image-caption {
+            font-size: 0.7rem;
+            color: #3a4455;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 0.75rem;
+        }
+
+        /* Impact quote */
+        .impact-quote {
+            border-left: 3px solid #6c8ec4;
+            padding: 1.25rem 1.75rem;
+            margin: 2rem 0;
+            background: rgba(108, 142, 196, 0.04);
+            border-radius: 0 8px 8px 0;
+        }
+
+        .impact-quote p {
+            font-family: 'Barlow', sans-serif;
+            font-size: 1.05rem;
+            font-style: italic;
+            color: #8892a4;
+            line-height: 1.7;
+            margin: 0;
+        }
+
+        /* Divider line */
+        .section-rule {
+            height: 1px;
+            background: linear-gradient(90deg, #6c8ec4, transparent);
+            margin: 3rem 0;
+        }
+
+        /* Light mode overrides */
+        body:not(.dark-mode) {
+            background-color: #f5f4ef;
+            color: #1f2937;
+        }
+        body:not(.dark-mode) .projects-header h1 { color: #0d1117; }
+        body:not(.dark-mode) .cs-title { color: #0d1117; }
+        body:not(.dark-mode) .cs-index { color: rgba(0,0,0,0.04); }
+        body:not(.dark-mode) .kpi-block { background: #ffffff; }
+        body:not(.dark-mode) .kpi-strip { background: rgba(0,0,0,0.06); }
+        body:not(.dark-mode) .kpi-block .kpi-value { color: #0d1117; }
+        body:not(.dark-mode) .kpi-block .kpi-label { color: #9ca3af; }
+        body:not(.dark-mode) .story-col { background: #ffffff; }
+        body:not(.dark-mode) .story-grid { background: rgba(0,0,0,0.06); }
+        body:not(.dark-mode) .story-col p { color: #4b5563; }
+        body:not(.dark-mode) .cs-lead { color: #4b5563; }
+        body:not(.dark-mode) .projects-header .header-desc { color: #4b5563; }
+        body:not(.dark-mode) .methodology-block { background: #ffffff; border-color: rgba(0,0,0,0.06); }
+        body:not(.dark-mode) .taxonomy-item { background: #ffffff; }
+        body:not(.dark-mode) .method-step-desc { color: #9ca3af; }
+        body:not(.dark-mode) .t-desc { color: #9ca3af; }
+        body:not(.dark-mode) .taxonomy-item .t-title { color: #0d1117; }
+        body:not(.dark-mode) .impact-quote { background: rgba(108, 142, 196, 0.06); }
+        body:not(.dark-mode) .impact-quote p { color: #4b5563; }
+        body:not(.dark-mode) .story-col-label { color: #9ca3af; }
+        body:not(.dark-mode) .method-step-title { color: #1f2937; }
+
+        @media (max-width: 768px) {
+            .story-grid { grid-template-columns: 1fr; }
+            .taxonomy-block { grid-template-columns: 1fr; }
+            .cs-index { font-size: 5rem; }
+            .kpi-block { min-width: 90px; }
+        }
+    </style>
 </head>
 <body>
-    <main class="container my-5">
-        <section class="glass-case-study p-4">
-            <div class="row align-items-center gx-4 gy-4">
-                <div class="col-12 col-lg-7">
-                    <img src="https://via.placeholder.com/1200x700" alt="E2E ECU Diagnostics Robustness" class="img-fluid rounded-4 shadow-sm">
+
+    <main class="container">
+
+        <!-- PAGE HEADER -->
+        <header class="projects-header">
+            <p class="eyebrow">Engineering Case Studies</p>
+            <h1>The <em>Work</em><br>Speaks.</h1>
+            <p class="header-desc">Three roles. Six years. A trail of measurable outcomes — in warranty savings, quality systems, and diagnostic standards that outlived each program.</p>
+        </header>
+
+        <!-- ═══════════════════════════════════════════════
+             CASE STUDY 01 — POWER RUNNING BOARDS
+        ════════════════════════════════════════════════ -->
+        <section class="case-study">
+            <span class="cs-index">01</span>
+
+            <div class="row gy-5">
+                <div class="col-lg-5">
+                    <p class="cs-eyebrow">Ford Motor Company · 2021–2025</p>
+                    <h2 class="cs-title">Power Running<br>Boards</h2>
+                    <p class="cs-subtitle">Feature Systems Engineer — Full Ownership</p>
+                    <p class="cs-lead">Inherited near-scrap legacy documentation. Delivered a complete systems engineering design to the 2025 Navigator & Expedition global launch — including the first-ever calibration framework for the feature.</p>
+
+                    <div class="cs-tags">
+                        <span class="cs-tag">Requirements Engineering</span>
+                        <span class="cs-tag">Calibration Design</span>
+                        <span class="cs-tag">NVH Analysis</span>
+                        <span class="cs-tag">Thermal Testing</span>
+                        <span class="cs-tag">DFMEA</span>
+                        <span class="cs-tag">Supplier Integration</span>
+                    </div>
                 </div>
-                <div class="col-12 col-lg-5">
-                    <p class="text-uppercase text-muted mb-2">Case Study</p>
-                    <h1 class="display-6 fw-bold mb-3">E2E ECU Diagnostics Robustness</h1>
-                    <p class="text-muted fs-5">A high-fidelity systems engineering case study focused on diagnostics reliability, cross-domain integration, and global OEM impact.</p>
+
+                <div class="col-lg-7">
+                    <img src="images/Expedition-Wall.jpg" alt="2025 Navigator Expedition Launch" class="cs-image">
+                    <p class="cs-image-caption">2025 Lincoln Navigator / Ford Expedition — Global Launch Program</p>
                 </div>
             </div>
 
-            <div class="row align-items-start gx-4 gy-4 mt-5">
-                <div class="col-12 col-xl-4">
-                    <aside class="glass-sidebar p-4 h-100">
-                        <h3 class="h5 fw-bold mb-3">System Specs</h3>
-                        <div class="mb-3">
-                            <div class="project-kpi mb-3">150+ Requirements</div>
-                            <div class="project-kpi mb-3">Global OEM Impact</div>
-                            <div class="project-kpi">20% Reduction in Cycle Time</div>
-                        </div>
-                        <p class="text-muted mb-0">This case study highlights how structured MBSE, requirements governance, and leadership alignment drove execution across a complex diagnostics program.</p>
-                    </aside>
+            <!-- KPI Strip -->
+            <div class="kpi-strip">
+                <div class="kpi-block">
+                    <span class="kpi-value accent">36%</span>
+                    <span class="kpi-label">Noise Reduction</span>
                 </div>
+                <div class="kpi-block">
+                    <span class="kpi-value">≈$1.4M</span>
+                    <span class="kpi-label">Warranty Savings (23MY)</span>
+                </div>
+                <div class="kpi-block">
+                    <span class="kpi-value">≈$2M</span>
+                    <span class="kpi-label">Hardware Saved / MY</span>
+                </div>
+                <div class="kpi-block">
+                    <span class="kpi-value accent">700+</span>
+                    <span class="kpi-label">Requirements Authored</span>
+                </div>
+                <div class="kpi-block">
+                    <span class="kpi-value">98%+</span>
+                    <span class="kpi-label">FTT Build Quality</span>
+                </div>
+                <div class="kpi-block">
+                    <span class="kpi-value accent">0</span>
+                    <span class="kpi-label">Open Critical Issues at Launch</span>
+                </div>
+            </div>
 
-                <div class="col-12 col-xl-8">
-                    <div class="row row-cols-1 row-cols-md-3 g-4 case-study-columns">
-                        <div class="col">
-                            <div class="card border-0 h-100">
-                                <div class="card-body">
-                                    <h3 class="h6 text-uppercase text-muted mb-3">The Challenge</h3>
-                                    <p class="mb-0">Aligning ECU diagnostics requirements across international OEM teams while preserving traceability and minimizing field failure risk.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="card border-0 h-100">
-                                <div class="card-body">
-                                    <h3 class="h6 text-uppercase text-muted mb-3">The Strategy</h3>
-                                    <p class="mb-0">Implemented a layered MBSE workflow, collaborative review cadence, and data-driven validation paths to synchronize software, hardware, and diagnostics teams.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="card border-0 h-100">
-                                <div class="card-body">
-                                    <h3 class="h6 text-uppercase text-muted mb-3">The Leadership Outcome</h3>
-                                    <p class="mb-0">Delivered structured decision points, clear accountability, and measurable progress updates that preserved momentum throughout integration phases.</p>
-                                </div>
-                            </div>
-                        </div>
+            <!-- Story Columns -->
+            <div class="story-grid">
+                <div class="story-col">
+                    <div class="story-col-label">The Situation</div>
+                    <p>Joined a newly formed Feature Systems Engineering team inheriting a feature with 2+ years of accumulated technical debt — requirements scattered, documentation near-scrap, no calibration standard in place.</p>
+                </div>
+                <div class="story-col">
+                    <div class="story-col-label">The Ownership</div>
+                    <p>Took full systems engineering ownership: requirements authoring, calibration framework definition, testing execution, and supplier alignment — roles that historically spanned multiple engineers, now consolidated into one accountable point of contact.</p>
+                </div>
+                <div class="story-col">
+                    <div class="story-col-label">The Outcome</div>
+                    <p>Delivered all three features — PRB, OBS/SH, and AVS — to global launch with zero open critical issues. Filed 12 innovation disclosures. Mentored 6 engineers. Still the primary technical contact for the feature across organizational moves.</p>
+                </div>
+            </div>
+
+            <!-- Calibration Framework -->
+            <div class="methodology-block">
+                <h4>Calibration Framework — Original Design</h4>
+                <p style="font-size:0.85rem; color: #586070; margin-bottom: 1.5rem;">The PRB had no calibration standard. I defined the 5 engineering variables that govern feature behavior and authored the dual-calibration architecture for thermal extremes — a framework now embedded in the feature's production specification.</p>
+                <div class="method-steps">
+                    <div class="method-step">
+                        <span class="method-step-num">01</span>
+                        <span class="method-step-title">Cycle Time</span>
+                        <span class="method-step-desc">Deploy/retract timing per operational context and user expectation.</span>
+                    </div>
+                    <div class="method-step">
+                        <span class="method-step-num">02</span>
+                        <span class="method-step-title">Obstacle Detection</span>
+                        <span class="method-step-desc">Sensitivity thresholds calibrated for safety-critical obstruction response.</span>
+                    </div>
+                    <div class="method-step">
+                        <span class="method-step-num">03</span>
+                        <span class="method-step-title">NVH Profile</span>
+                        <span class="method-step-desc">Acoustic signature mapping — resulted in 36% noise reduction without performance trade-off.</span>
+                    </div>
+                    <div class="method-step">
+                        <span class="method-step-num">04</span>
+                        <span class="method-step-title">Stressability</span>
+                        <span class="method-step-desc">Structural and fatigue limits defined under repeated load and abuse conditions.</span>
+                    </div>
+                    <div class="method-step">
+                        <span class="method-step-num">05</span>
+                        <span class="method-step-title">Temperature</span>
+                        <span class="method-step-desc">Dual calibration: −40°C cold and +50°C hot profiles, validated in Ford's anechoic and thermal chambers.</span>
                     </div>
                 </div>
             </div>
+
+            <div class="impact-quote">
+                <p>"The challenge wasn't just the engineering — it was holding together the full system picture when architecture, software, ECU, and supplier teams each owned a piece. The calibration work was mine alone because no one else had defined what that even meant for this feature."</p>
+            </div>
+
         </section>
+
+        <!-- ═══════════════════════════════════════════════
+             CASE STUDY 02 — E2E ECU DIAGNOSTICS
+        ════════════════════════════════════════════════ -->
+        <section class="case-study">
+            <span class="cs-index">02</span>
+
+            <div class="row gy-5">
+                <div class="col-lg-5">
+                    <p class="cs-eyebrow">Ford Motor Company · July 2025–Present</p>
+                    <h2 class="cs-title">E2E ECU<br>Diagnostics<br>Robustness</h2>
+                    <p class="cs-subtitle">Diagnostics Design Engineer — Standard Creation</p>
+                    <p class="cs-lead">Built a diagnostic reasoning framework from first principles — not to prevent failures, but to ensure every failure mode can be detected, flagged, and resolved with precision. Now the operating standard for a newly established team.</p>
+
+                    <div class="cs-tags">
+                        <span class="cs-tag">Diagnostics Architecture</span>
+                        <span class="cs-tag">Gap Analysis</span>
+                        <span class="cs-tag">DFMEA Integration</span>
+                        <span class="cs-tag">DTC Methodology</span>
+                        <span class="cs-tag">Requirements Engineering</span>
+                        <span class="cs-tag">Noisy DTC Investigation</span>
+                    </div>
+                </div>
+
+                <div class="col-lg-7">
+                    <img src="images/BMW2021.jpg" alt="ECU Diagnostics Engineering" class="cs-image">
+                    <p class="cs-image-caption">E2E Diagnostics Robustness — Active Program</p>
+                </div>
+            </div>
+
+            <!-- KPI Strip -->
+            <div class="kpi-strip">
+                <div class="kpi-block">
+                    <span class="kpi-value accent">150+</span>
+                    <span class="kpi-label">Requirements Authored</span>
+                </div>
+                <div class="kpi-block">
+                    <span class="kpi-value">68</span>
+                    <span class="kpi-label">Reqs from 1 Feature Function</span>
+                </div>
+                <div class="kpi-block">
+                    <span class="kpi-value accent">12</span>
+                    <span class="kpi-label">Legacy Gaps Identified</span>
+                </div>
+                <div class="kpi-block">
+                    <span class="kpi-value">5</span>
+                    <span class="kpi-label">Program Phases</span>
+                </div>
+                <div class="kpi-block">
+                    <span class="kpi-value accent">23+</span>
+                    <span class="kpi-label">Noisy DTC Requirements</span>
+                </div>
+                <div class="kpi-block">
+                    <span class="kpi-value">4</span>
+                    <span class="kpi-label">Features in Scope (Pilot)</span>
+                </div>
+            </div>
+
+            <!-- Story Columns -->
+            <div class="story-grid">
+                <div class="story-col">
+                    <div class="story-col-label">The Problem</div>
+                    <p>A newly created diagnostics team with no established standard. Features had DFMEAs accounting for failures — but no structured framework defining how to detect, flag, and diagnose those failures from a diagnostics engineering standpoint.</p>
+                </div>
+                <div class="story-col">
+                    <div class="story-col-label">The Approach</div>
+                    <p>Executed a 5-phase program: system audit, gap analysis across legacy documentation, requirements creation, test case definition, and validation planning. Treated existing DFMEAs as the input — diagnostics requirements as the structured output.</p>
+                </div>
+                <div class="story-col">
+                    <div class="story-col-label">The Standard</div>
+                    <p>The 3-tier taxonomy (below) is now the working methodology for the team. What took months to develop for PRB's obstacle detection function — 68 requirements closing 12 gaps — becomes the template for every feature that follows.</p>
+                </div>
+            </div>
+
+            <!-- 3-Tier Taxonomy -->
+            <div class="section-rule"></div>
+            <p style="font-family: 'Barlow Condensed', sans-serif; font-size: 0.75rem; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: #4a5568; margin-bottom: 1rem;">Original Diagnostic Reasoning Taxonomy</p>
+            <p style="font-size: 0.85rem; color: #586070; max-width: 620px; margin-bottom: 1.5rem;">Three requirement tiers, each building on the previous — from physics of failure to engineer-ready diagnosis. Authored from first principles.</p>
+
+            <div class="taxonomy-block">
+                <div class="taxonomy-item">
+                    <div class="t-num">Tier I</div>
+                    <div class="t-title">Detection Control</div>
+                    <div class="t-desc">Defines the technical conditions under which a failure can occur — the physics and system-state boundaries that make a fault mode active. Sourced directly from feature DFMEA and ECU specifications.</div>
+                </div>
+                <div class="taxonomy-item">
+                    <div class="t-num">Tier II</div>
+                    <div class="t-title">Fault Detectability</div>
+                    <div class="t-desc">Defines how the vehicle perceives and flags the failure — what the driver or system experiences, and which DTC must be triggered. Translates engineering failure modes into observable vehicle behavior.</div>
+                </div>
+                <div class="taxonomy-item">
+                    <div class="t-num">Tier III</div>
+                    <div class="t-title">Diagnostics Requirement</div>
+                    <div class="t-desc">The engineer- and dealer-facing output: the full diagnostic path combining Tier I + II — specifying which DID to read, which signal to capture, and what the DTC confirms. Enables precise, repeatable troubleshooting.</div>
+                </div>
+            </div>
+
+            <div class="impact-quote">
+                <p>"68 requirements from a single function of a single feature. The power of this framework isn't what it fixed — it's what it scales. Every feature in scope will generate its own set, and every gap it closes becomes a permanent improvement to the standard."</p>
+            </div>
+
+        </section>
+
+        <!-- ═══════════════════════════════════════════════
+             CASE STUDY 03 — BMW QUALITY MANAGEMENT
+        ════════════════════════════════════════════════ -->
+        <section class="case-study">
+            <span class="cs-index">03</span>
+
+            <div class="row gy-5">
+                <div class="col-lg-5">
+                    <p class="cs-eyebrow">BMW Group · July 2020–June 2021</p>
+                    <h2 class="cs-title">Quality<br>Management<br>System</h2>
+                    <p class="cs-subtitle">Quality Management Engineer — Plant San Luis Potosí</p>
+                    <p class="cs-lead">Deployed a digital quality management infrastructure at a global BMW manufacturing plant — transforming manual processes into a connected Power BI/Power Apps ecosystem while achieving zero-finding ISO 9001 compliance.</p>
+
+                    <div class="cs-tags">
+                        <span class="cs-tag">Power BI</span>
+                        <span class="cs-tag">Power Apps</span>
+                        <span class="cs-tag">ISO 9001</span>
+                        <span class="cs-tag">IATF 16949</span>
+                        <span class="cs-tag">Change Management</span>
+                        <span class="cs-tag">Process Design</span>
+                    </div>
+                </div>
+
+                <div class="col-lg-7">
+                    <img src="images/BMW3.jpg" alt="BMW Plant San Luis Potosi" class="cs-image">
+                    <p class="cs-image-caption">BMW Group — Plant San Luis Potosí, México</p>
+                </div>
+            </div>
+
+            <!-- KPI Strip -->
+            <div class="kpi-strip">
+                <div class="kpi-block">
+                    <span class="kpi-value accent">30%</span>
+                    <span class="kpi-label">Issue Closure Time Reduced</span>
+                </div>
+                <div class="kpi-block">
+                    <span class="kpi-value">25%</span>
+                    <span class="kpi-label">Proactive Defect Containment ↑</span>
+                </div>
+                <div class="kpi-block">
+                    <span class="kpi-value accent">120+</span>
+                    <span class="kpi-label">Process Leaders Trained</span>
+                </div>
+                <div class="kpi-block">
+                    <span class="kpi-value">0</span>
+                    <span class="kpi-label">Major Audit Findings</span>
+                </div>
+                <div class="kpi-block">
+                    <span class="kpi-value accent">2</span>
+                    <span class="kpi-label">Global Audits Passed</span>
+                </div>
+            </div>
+
+            <!-- Story Columns -->
+            <div class="story-grid">
+                <div class="story-col">
+                    <div class="story-col-label">The Context</div>
+                    <p>A global BMW manufacturing plant running quality management on largely manual, siloed processes. Audit cycles were approaching and the Quality Management System needed both a digital transformation and a cultural one.</p>
+                </div>
+                <div class="story-col">
+                    <div class="story-col-label">The Delivery</div>
+                    <p>Designed and deployed an integrated Power BI dashboard and Power Apps workflow suite for the full QMS — enabling real-time issue tracking, escalation routing, and containment visibility across 120+ process leaders.</p>
+                </div>
+                <div class="story-col">
+                    <div class="story-col-label">The Culture</div>
+                    <p>Technical delivery alone wasn't enough. Launched a "Quality Mindset" campaign that trained 120+ process leads — shifting defect response from reactive to proactive, with a measurable 25% improvement in containment actions within 6 months.</p>
+                </div>
+            </div>
+
+            <div class="impact-quote">
+                <p>"The hardest part wasn't the dashboards — it was the people. Getting 120 process leaders to own quality data, not just report it, required a different kind of engineering: organizational."</p>
+            </div>
+
+        </section>
+
     </main>
 
+    <!-- FOOTER -->
+    <footer class="text-center py-4" style="border-top: 1px solid rgba(255,255,255,0.05); margin-top: 2rem;">
+        <p style="color: #3a4455; font-size: 0.85rem;">&copy; 2026 Angel Vargas. All rights reserved.</p>
+    </footer>
+
+    <!-- FLOATING DOCK -->
     <nav class="floating-dock" aria-label="Quick navigation">
         <a href="index.html" class="dock-link">
             <i class="bi bi-house-fill"></i>
@@ -82,7 +729,7 @@
             <i class="bi bi-person-fill"></i>
             <span class="dock-tooltip">About</span>
         </a>
-        <a href="#contact" class="dock-link">
+        <a href="index.html#contact" class="dock-link">
             <i class="bi bi-envelope-fill"></i>
             <span class="dock-tooltip">Contact</span>
         </a>
@@ -91,10 +738,6 @@
             <span class="dock-tooltip">Theme</span>
         </button>
     </nav>
-
-    <footer class="text-center py-4">
-        <p>&copy; 2026 Angel Vargas. All rights reserved.</p>
-    </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="js/script.js"></script>

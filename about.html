@@ -3,101 +3,777 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About</title>
+    <title>About — Angel Vargas</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Barlow:wght@300;400;500;600;700&family=Barlow+Condensed:wght@400;600;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/components.css">
     <link rel="stylesheet" href="css/pages.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <style>
+
+        body {
+            font-family: 'Barlow', sans-serif;
+            background-color: #faf9f6;
+            color: #1a1a2e;
+        }
+
+        body.dark-mode {
+            background-color: #111318;
+            color: #e2e8f0;
+        }
+
+        /* ── Opening ── */
+        .about-opening {
+            padding: 7rem 0 5rem;
+            border-bottom: 1px solid rgba(0,0,0,0.07);
+        }
+
+        body.dark-mode .about-opening {
+            border-color: rgba(255,255,255,0.05);
+        }
+
+        .about-opening .eyebrow {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: #6c8ec4;
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+
+        .about-opening h1 {
+            font-family: 'Lora', serif;
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 400;
+            line-height: 1.15;
+            color: #0d0f14;
+            margin-bottom: 2rem;
+        }
+
+        body.dark-mode .about-opening h1 {
+            color: #f1f5f9;
+        }
+
+        .about-opening h1 em {
+            font-style: italic;
+            color: #6c8ec4;
+        }
+
+        .about-opening .opening-body {
+            font-size: 1.15rem;
+            line-height: 1.85;
+            color: #4a5568;
+            max-width: 600px;
+        }
+
+        body.dark-mode .about-opening .opening-body {
+            color: #94a3b8;
+        }
+
+        /* ── Pull Quote ── */
+        .pull-quote {
+            padding: 5rem 0;
+            text-align: center;
+        }
+
+        .pull-quote blockquote {
+            font-family: 'Lora', serif;
+            font-size: clamp(1.4rem, 3vw, 2.2rem);
+            font-style: italic;
+            font-weight: 400;
+            line-height: 1.5;
+            color: #1a1a2e;
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        body.dark-mode .pull-quote blockquote {
+            color: #e2e8f0;
+        }
+
+        .pull-quote blockquote::before {
+            content: '\201C';
+            font-family: 'Lora', serif;
+            font-size: 6rem;
+            color: rgba(108, 142, 196, 0.2);
+            position: absolute;
+            top: -2rem;
+            left: -1rem;
+            line-height: 1;
+        }
+
+        /* ── Cities Timeline ── */
+        .cities-section {
+            padding: 5rem 0;
+            border-top: 1px solid rgba(0,0,0,0.07);
+            border-bottom: 1px solid rgba(0,0,0,0.07);
+        }
+
+        body.dark-mode .cities-section {
+            border-color: rgba(255,255,255,0.05);
+        }
+
+        .section-label {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #9ca3af;
+            margin-bottom: 3rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .section-label::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: rgba(0,0,0,0.08);
+        }
+
+        body.dark-mode .section-label::after {
+            background: rgba(255,255,255,0.06);
+        }
+
+        .cities-track {
+            display: flex;
+            gap: 0;
+            overflow-x: auto;
+            padding-bottom: 1rem;
+            scrollbar-width: none;
+        }
+
+        .cities-track::-webkit-scrollbar { display: none; }
+
+        .city-stop {
+            flex: 0 0 auto;
+            min-width: 160px;
+            padding: 0 2rem 0 0;
+            position: relative;
+        }
+
+        .city-stop::after {
+            content: '';
+            position: absolute;
+            bottom: -1.5rem;
+            left: 0;
+            right: 2rem;
+            height: 1px;
+            background: linear-gradient(90deg, #6c8ec4, rgba(108,142,196,0.1));
+        }
+
+        .city-stop:last-child::after {
+            display: none;
+        }
+
+        .city-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #6c8ec4;
+            margin-bottom: 0.75rem;
+        }
+
+        .city-name {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: #1a1a2e;
+            letter-spacing: 0.5px;
+        }
+
+        body.dark-mode .city-name { color: #f1f5f9; }
+
+        .city-state {
+            font-size: 0.75rem;
+            color: #9ca3af;
+            font-weight: 500;
+            margin-top: 0.2rem;
+        }
+
+        .city-note {
+            font-size: 0.78rem;
+            color: #6c8ec4;
+            font-style: italic;
+            margin-top: 0.4rem;
+            line-height: 1.4;
+        }
+
+        /* ── Two Column Story ── */
+        .story-section {
+            padding: 5rem 0;
+            border-bottom: 1px solid rgba(0,0,0,0.07);
+        }
+
+        body.dark-mode .story-section {
+            border-color: rgba(255,255,255,0.05);
+        }
+
+        .story-section h2 {
+            font-family: 'Lora', serif;
+            font-size: clamp(1.8rem, 4vw, 2.8rem);
+            font-weight: 500;
+            color: #0d0f14;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+
+        body.dark-mode .story-section h2 { color: #f1f5f9; }
+
+        .story-section h2 em {
+            font-style: italic;
+            color: #6c8ec4;
+        }
+
+        .story-body {
+            font-size: 1rem;
+            line-height: 1.85;
+            color: #4a5568;
+        }
+
+        body.dark-mode .story-body { color: #94a3b8; }
+
+        .story-body p + p {
+            margin-top: 1.25rem;
+        }
+
+        /* Sidebar stat */
+        .story-aside {
+            padding-left: 3rem;
+            border-left: 1px solid rgba(0,0,0,0.08);
+        }
+
+        body.dark-mode .story-aside {
+            border-color: rgba(255,255,255,0.06);
+        }
+
+        .aside-stat {
+            margin-bottom: 2.5rem;
+        }
+
+        .aside-stat .stat-num {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 3rem;
+            font-weight: 900;
+            color: #6c8ec4;
+            line-height: 1;
+            display: block;
+        }
+
+        .aside-stat .stat-desc {
+            font-size: 0.85rem;
+            color: #9ca3af;
+            line-height: 1.5;
+            margin-top: 0.4rem;
+        }
+
+        .aside-tag {
+            display: inline-block;
+            padding: 0.35rem 0.85rem;
+            border: 1px solid rgba(108, 142, 196, 0.25);
+            border-radius: 4px;
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            color: #6c8ec4;
+            background: rgba(108, 142, 196, 0.05);
+            margin: 0.25rem;
+        }
+
+        /* ── Values Grid ── */
+        .values-section {
+            padding: 5rem 0;
+            border-bottom: 1px solid rgba(0,0,0,0.07);
+        }
+
+        body.dark-mode .values-section {
+            border-color: rgba(255,255,255,0.05);
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .value-card {
+            padding: 2rem;
+            background: #ffffff;
+            border: 1px solid rgba(0,0,0,0.06);
+            border-radius: 12px;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        body.dark-mode .value-card {
+            background: #1a1d24;
+            border-color: rgba(255,255,255,0.05);
+        }
+
+        .value-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+        }
+
+        .value-card .v-source {
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #6c8ec4;
+            margin-bottom: 0.75rem;
+        }
+
+        .value-card .v-label {
+            font-family: 'Lora', serif;
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: #0d0f14;
+            margin-bottom: 0.5rem;
+        }
+
+        body.dark-mode .value-card .v-label { color: #f1f5f9; }
+
+        .value-card .v-desc {
+            font-size: 0.85rem;
+            color: #9ca3af;
+            line-height: 1.6;
+        }
+
+        /* ── Passions ── */
+        .passions-section {
+            padding: 5rem 0;
+            border-bottom: 1px solid rgba(0,0,0,0.07);
+        }
+
+        body.dark-mode .passions-section {
+            border-color: rgba(255,255,255,0.05);
+        }
+
+        .passion-item {
+            display: grid;
+            grid-template-columns: 48px 1fr;
+            gap: 1.5rem;
+            align-items: start;
+            padding: 2rem 0;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+
+        body.dark-mode .passion-item {
+            border-color: rgba(255,255,255,0.04);
+        }
+
+        .passion-item:last-child { border-bottom: none; }
+
+        .passion-icon {
+            width: 48px;
+            height: 48px;
+            background: rgba(108, 142, 196, 0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            color: #6c8ec4;
+            flex-shrink: 0;
+        }
+
+        .passion-content h3 {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #0d0f14;
+            margin-bottom: 0.5rem;
+        }
+
+        body.dark-mode .passion-content h3 { color: #f1f5f9; }
+
+        .passion-content p {
+            font-size: 0.95rem;
+            color: #4a5568;
+            line-height: 1.7;
+            margin: 0;
+        }
+
+        body.dark-mode .passion-content p { color: #94a3b8; }
+
+        /* ── What Drives Me ── */
+        .drives-section {
+            padding: 5rem 0;
+        }
+
+        .drives-block {
+            background: #0d0f14;
+            border-radius: 16px;
+            padding: 4rem;
+            color: #e2e8f0;
+        }
+
+        body:not(.dark-mode) .drives-block {
+            background: #0d0f14;
+        }
+
+        .drives-block .drives-label {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #6c8ec4;
+            margin-bottom: 1.5rem;
+        }
+
+        .drives-block h2 {
+            font-family: 'Lora', serif;
+            font-size: clamp(1.6rem, 4vw, 2.5rem);
+            font-weight: 400;
+            font-style: italic;
+            color: #ffffff;
+            line-height: 1.3;
+            margin-bottom: 2rem;
+        }
+
+        .drives-block p {
+            font-size: 1rem;
+            color: #8892a4;
+            line-height: 1.8;
+            max-width: 680px;
+            margin-bottom: 1.25rem;
+        }
+
+        .drives-block .next-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            padding: 0.75rem 1.5rem;
+            background: rgba(108, 142, 196, 0.12);
+            border: 1px solid rgba(108, 142, 196, 0.25);
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #6c8ec4;
+            margin-top: 1.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .story-aside {
+                padding-left: 0;
+                border-left: none;
+                border-top: 1px solid rgba(0,0,0,0.08);
+                padding-top: 2rem;
+                margin-top: 2rem;
+            }
+            .drives-block { padding: 2.5rem 1.75rem; }
+        }
+
+        /* ── Photo placeholders ── */
+        .photo-placeholder {
+            width: 100%;
+            max-width: 480px;
+            height: 220px;
+            background: rgba(108, 142, 196, 0.05);
+            border: 2px dashed rgba(108, 142, 196, 0.25);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #6c8ec4;
+            font-size: 0.8rem;
+            font-weight: 500;
+            letter-spacing: 0.3px;
+        }
+
+        .photo-placeholder::after {
+            content: attr(data-label);
+        }
+
+        .city-photo {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-top: 1.5rem;
+            display: block;
+        }
+
+        .city-photo-placeholder {
+            width: 100%;
+            height: 160px;
+            background: rgba(108, 142, 196, 0.05);
+            border: 2px dashed rgba(108, 142, 196, 0.2);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #6c8ec4;
+            font-size: 0.75rem;
+            margin-top: 1.5rem;
+        }
+
+        .city-photo-placeholder::after {
+            content: attr(data-label);
+        }
+    </style>
 </head>
 <body>
-    <main class="container my-5">
-        <section class="journey-layout p-4">
-            <div class="row g-4">
-                <div class="col-12 col-lg-6">
-                    <div class="journey-card p-4 h-100">
-                        <p class="text-uppercase text-muted mb-2">Personal Journey</p>
-                        <h1 class="display-6 fw-bold mb-3">The Empiric Path</h1>
-                        <p class="text-muted">A self-driven evolution from hands-on systems work to an AI-designed portfolio and thoughtful personal growth. This path highlights practical learning, adaptable skills, and a commitment to continuous curiosity.</p>
-                        <p class="mb-4">Alongside formal engineering experience, I teach myself new tools, refine process design, and leverage emerging technologies to keep every project efficient and future-ready.</p>
+<main class="container">
 
-                        <div class="mb-3">
-                            <h2 class="h5 fw-semibold mb-3">Skill Chips</h2>
-                            <div class="d-flex flex-wrap gap-2">
-                                <span class="skill-chip">AI Portfolio Design</span>
-                                <span class="skill-chip">Systems Thinking</span>
-                                <span class="skill-chip">Rapid Prototyping</span>
-                                <span class="skill-chip">Creative Problem Solving</span>
-                            </div>
-                        </div>
+    <!-- ── OPENING ── -->
+    <section class="about-opening">
+        <span class="eyebrow">The Human Behind the Engineer</span>
+        <h1>A life spent<br>in <em>motion,</em><br>building roots.</h1>
+        <p class="opening-body">Born in Guerrero. Raised across five cities. Shaped by movement, family, and the quiet discipline of showing up — in every new classroom, on every tennis court, and in every engineering challenge that mattered.</p>
+    </section>
 
-                        <div>
-                            <h2 class="h5 fw-semibold mb-3">Hobbies</h2>
-                            <div class="d-flex flex-wrap gap-2">
-                                <span class="skill-chip soft">Music</span>
-                                <span class="skill-chip soft">Travel</span>
-                                <span class="skill-chip soft">Tech Tinkering</span>
-                                <span class="skill-chip soft">Reading</span>
-                            </div>
-                        </div>
-                    </div>
+    <!-- ── PULL QUOTE ── -->
+    <div class="pull-quote">
+        <blockquote>
+            I didn't choose engineering because of a lifelong passion for machines. I chose it, committed to it — and built the passion from the inside out. That's how I do most things.
+        </blockquote>
+    </div>
+
+    <!-- ── CITIES ── -->
+    <section class="cities-section">
+        <div class="section-label">A Life in Motion</div>
+        <!-- Two city photos side by side -->
+        <div class="row g-3 mb-4">
+            <div class="col-md-6">
+                <!-- 📸 Save a photo of Ciudad Altamirano as: images/about-altamirano.jpg -->
+                <div class="city-photo-placeholder" data-label="📸 Ciudad Altamirano → save as images/about-altamirano.jpg"></div>
+                <p style="font-size:0.72rem; color:#9ca3af; text-align:center; margin-top:0.5rem; text-transform:uppercase; letter-spacing:1px;">Ciudad Altamirano, Guerrero</p>
+            </div>
+            <div class="col-md-6">
+                <!-- 📸 Save a photo of Morelia as: images/about-morelia.jpg -->
+                <div class="city-photo-placeholder" data-label="📸 Morelia → save as images/about-morelia.jpg"></div>
+                <p style="font-size:0.72rem; color:#9ca3af; text-align:center; margin-top:0.5rem; text-transform:uppercase; letter-spacing:1px;">Morelia, Michoacán</p>
+            </div>
+        </div>
+        <div class="cities-track">
+            <div class="city-stop">
+                <div class="city-dot"></div>
+                <div class="city-name">Ciudad Altamirano</div>
+                <div class="city-state">Guerrero</div>
+                <div class="city-note">Balsas riverbank. My mother's family roots. The best food in Mexico.</div>
+            </div>
+            <div class="city-stop">
+                <div class="city-dot"></div>
+                <div class="city-name">Acapulco</div>
+                <div class="city-state">Guerrero</div>
+                <div class="city-note">Where my brother arrived.</div>
+            </div>
+            <div class="city-stop">
+                <div class="city-dot"></div>
+                <div class="city-name">Hermosillo</div>
+                <div class="city-state">Sonora</div>
+                <div class="city-note">Desert heat, new faces.</div>
+            </div>
+            <div class="city-stop">
+                <div class="city-dot"></div>
+                <div class="city-name">Mérida</div>
+                <div class="city-state">Yucatán</div>
+                <div class="city-note">Pyramids, cenotes — and my first tennis racket.</div>
+            </div>
+            <div class="city-stop">
+                <div class="city-dot"></div>
+                <div class="city-name">Morelia</div>
+                <div class="city-state">Michoacán</div>
+                <div class="city-note">Most of my life. Where I became who I am.</div>
+            </div>
+            <div class="city-stop">
+                <div class="city-dot"></div>
+                <div class="city-name">Mexico City</div>
+                <div class="city-state">CDMX</div>
+                <div class="city-note">IPN. Where engineering became identity.</div>
+            </div>
+            <div class="city-stop">
+                <div class="city-dot"></div>
+                <div class="city-name">San Luis Potosí</div>
+                <div class="city-state">SLP</div>
+                <div class="city-note">BMW Group. First role. Zero audit findings.</div>
+            </div>
+            <div class="city-stop">
+                <div class="city-dot"></div>
+                <div class="city-name">Naucalpan</div>
+                <div class="city-state">Estado de México</div>
+                <div class="city-note">Ford GTBC. Four years. Three features. Global launches.</div>
+            </div>
+            <div class="city-stop">
+                <div class="city-dot" style="background: #6c8ec4; box-shadow: 0 0 0 3px rgba(108,142,196,0.2);"></div>
+                <div class="city-name">Sweden</div>
+                <div class="city-state">Next Chapter</div>
+                <div class="city-note">Vehicle Engineering MSc. Applications open mid-2025.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── ORIGIN STORY ── -->
+    <section class="story-section">
+        <div class="row">
+            <div class="col-lg-7">
+                <div class="section-label">Origin</div>
+                <h2>Hot Wheels, a collection,<br>and an <em>honest choice.</em></h2>
+                <div class="story-body">
+                    <p>I didn't have a childhood story of taking apart televisions or building machines in the garage. My story starts with a collection of Hot Wheels — die-cast cars lined up with the seriousness only a child can give small things. Each one chosen, named, remembered. My parents saw that love and fed it. My father, who never shared the obsession, showed up for it anyway — and in doing so, turned a collection into a bond.</p>
+                    <p>When it came to choosing a career, I was honest with myself: I was good at maths and exact sciences. I chose Automotive Systems Engineering at IPN for practical reasons — the kind of reasons a first-generation professional from a hardworking family understands without needing to explain.</p>
+                    <p>What happened next is what I'm most proud of: I fell in love with the work. Not because someone told me I would. But because I committed, and passion followed commitment. That sequence — commit first, let the love come — has become a guiding principle in everything I do.</p>
                 </div>
-
-                <div class="col-12 col-lg-6">
-                    <div class="journey-card p-4 h-100">
-                        <p class="text-uppercase text-muted mb-2">Continuous Improvement</p>
-                        <h1 class="display-6 fw-bold mb-3">Recent Growth</h1>
-                        <div class="growth-list">
-                            <div class="growth-item">
-                                <h3 class="h6 fw-semibold">AI Prompting Mastery</h3>
-                                <p class="text-muted mb-0">Refined prompt engineering for higher-quality outputs and faster iteration in design workflows.</p>
-                            </div>
-                            <div class="growth-item">
-                                <h3 class="h6 fw-semibold">Advanced Python for Systems</h3>
-                                <p class="text-muted mb-0">Expanded scripting knowledge to automate diagnostics and validation tasks.</p>
-                            </div>
-                            <div class="growth-item">
-                                <h3 class="h6 fw-semibold">Leadership Development</h3>
-                                <p class="text-muted mb-0">Completed training in collaborative decision-making and stakeholder communication.</p>
-                            </div>
-                            <div class="growth-item">
-                                <h3 class="h6 fw-semibold">Design Thinking Workshops</h3>
-                                <p class="text-muted mb-0">Practiced structured problem framing and solution sketching for faster concept validation.</p>
-                            </div>
-                        </div>
+            </div>
+            <div class="col-lg-5 mt-4 mt-lg-0">
+                <div class="story-aside">
+                    <div class="aside-stat">
+                        <span class="stat-num">5</span>
+                        <span class="stat-desc">Cities before university. Each one added a layer to how I listen, adapt, and connect.</span>
+                    </div>
+                    <div class="aside-stat">
+                        <span class="stat-num">O</span>
+                        <span class="stat-desc">My brother. The stubbornness, sensitivity, and openness in me — that's him. Somewhere in him lives the stubbornness and sensitivity I'm still learning to carry well.</span>
+                    </div>
+                    <div style="margin-top: 2rem;">
+                        <div class="aside-tag">IPN — ESIME Zacatenco</div>
+                        <div class="aside-tag">Automotive Systems Engineering</div>
+                        <div class="aside-tag">Specialty: Thermo-fluids</div>
                     </div>
                 </div>
             </div>
-        </section>
-    </main>
+        </div>
+    </section>
 
-    <nav class="floating-dock" aria-label="Quick navigation">
-        <a href="index.html" class="dock-link">
-            <i class="bi bi-house-fill"></i>
-            <span class="dock-tooltip">Home</span>
-        </a>
-        <a href="projects.html" class="dock-link">
-            <i class="bi bi-briefcase-fill"></i>
-            <span class="dock-tooltip">Projects</span>
-        </a>
-        <a href="about.html" class="dock-link">
-            <i class="bi bi-person-fill"></i>
-            <span class="dock-tooltip">About</span>
-        </a>
-        <a href="#contact" class="dock-link">
-            <i class="bi bi-envelope-fill"></i>
-            <span class="dock-tooltip">Contact</span>
-        </a>
-        <button id="themeToggle" class="dock-link" type="button" aria-label="Toggle theme">
-            <i id="themeToggleIcon" class="bi bi-moon-fill"></i>
-            <span class="dock-tooltip">Theme</span>
-        </button>
-    </nav>
+    <!-- ── FAMILY & VALUES ── -->
+    <section class="values-section">
+        <div class="section-label">Foundations</div>
+        <h2 class="story-section" style="padding:0; border:none; font-family:'Lora',serif; font-size:clamp(1.8rem,4vw,2.5rem); font-weight:500; color:#0d0f14;">
+            <span style="color:#0d0f14;">The people who made me</span>
+            <em style="color:#6c8ec4; font-style:italic;"> who I am.</em>
+        </h2>
+        <div class="values-grid">
+            <div class="value-card">
+                <div class="v-source">From my mother</div>
+                <div class="v-label">Emotional intelligence & logic</div>
+                <div class="v-desc">The pursuit of rationality paired with the capacity to feel it. She taught me that empathy and precision are not opposites.</div>
+            </div>
+            <div class="value-card">
+                <div class="v-source">From my father</div>
+                <div class="v-label">Courage & technical curiosity</div>
+                <div class="v-desc">A leader of 7 siblings, always the one who stood up. He gave me the willingness to go first, the bravery to be accountable, and the care to bring others along. His pursuit of growth moved our whole family across the country — and that restlessness lives in me too.</div>
+            </div>
+            <div class="value-card">
+                <div class="v-source">From my brother</div>
+                <div class="v-label">Vulnerability & stubbornness</div>
+                <div class="v-desc">The ability to be afraid and go anyway. Some distances between people are temporary — the values they leave behind are not.</div>
+            </div>
+            <div class="value-card">
+                <div class="v-source">From the road</div>
+                <div class="v-label">The art of listening</div>
+                <div class="v-desc">Moving city to city as a child, I didn't always have the words to make friends quickly. So I learned to listen first — to understand before speaking. Every leadership lesson I've ever given started here.</div>
+            </div>
+        </div>
+        <p style="font-family:'Lora',serif; font-style:italic; font-size:0.95rem; color:#9ca3af; text-align:center; margin-top:3rem; max-width:560px; margin-left:auto; margin-right:auto;">
+            And from the person who, for ten years, held up a mirror and showed me who I was capable of becoming — Some chapters end so the next one can begin.
+        </p>
+    </section>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="js/script.js"></script>
-    <footer class="text-center py-4">
-    <p>&copy; 2026 Angel Vargas. All rights reserved.</p>
+    <!-- ── PASSIONS ── -->
+    <section class="passions-section">
+        <div class="section-label">Outside the Office</div>
+
+        <div class="passion-item">
+            <div class="passion-icon"><i class="bi bi-dribbble"></i></div>
+            <div class="passion-content">
+                <h3>Tennis — The Sport of My Life</h3>
+                <p>Picked up a racket in Mérida around mid-elementary school and never truly put it down. At its peak, 2–4 hours a day, every day — the only sport I've ever wanted to repeat. I've tried football, basketball, volleyball, athletics, swimming. Tennis is the one I still watch on television even when I don't follow the season. I've coached beginner and intermediate players at university. Right now: occasional matches. Always: the same love for the game.</p>
+                <!-- 📸 Replace src below with your tennis photo. Save it as: images/about-tennis.jpg -->
+                <div class="photo-placeholder mt-3" data-label="📸 Your photo here → save as images/about-tennis.jpg"></div>
+            </div>
+        </div>
+
+        <div class="passion-item">
+            <div class="passion-icon"><i class="bi bi-collection"></i></div>
+            <div class="passion-content">
+                <h3>Hot Wheels — A Serious Collection</h3>
+                <p>Started as a child's obsession, became a lifelong archive. Each car chosen with intention — every piece a small, precise thing that held meaning before I had words for it. It's the most honest version of my origin story: I loved cars before I understood them, and that love came first as something you could hold in your hand.</p>
+                <!-- 📸 Replace src below with your Hot Wheels photo. Save it as: images/about-hotwheels.jpg -->
+                <div class="photo-placeholder mt-3" data-label="📸 Your photo here → save as images/about-hotwheels.jpg"></div>
+            </div>
+        </div>
+
+        <div class="passion-item">
+            <div class="passion-icon"><i class="bi bi-egg-fried"></i></div>
+            <div class="passion-content">
+                <h3>Baking — Canolis & Family Tradition</h3>
+                <p>My father's family carries a tradition of bread-making. I grew up loving bread in every form — sweet, salty, elaborate, simple. When Christmas trips to Ciudad Altamirano ended as my grandparents passed, we started our own family dinner at home. That first year, I made Canolis. I am a critic about bread, which means I hold my own work to the same standard. They've been repeated only a few times since — which means they stay special.</p>
+                <!-- 📸 Replace src below with your canolis photo. Save it as: images/about-canolis.jpg -->
+                <div class="photo-placeholder mt-3" data-label="📸 Your photo here → save as images/about-canolis.jpg"></div>
+            </div>
+        </div>
+
+        <div class="passion-item">
+            <div class="passion-icon"><i class="bi bi-airplane"></i></div>
+            <div class="passion-content">
+                <h3>Travel — A Lifelong Practice</h3>
+                <p>I didn't choose to travel — I was raised doing it. Mexico end to end as a child. Europe before I was a teenager, made possible by my parents' years of careful effort. Back to Europe two years ago. Multiple visits to the US and Canada for work and pleasure. Travel, for me, is less about destinations and more about the recalibration it forces. Every new place shows you what you assumed was universal is actually just local.</p>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- ── WHAT DRIVES ME ── -->
+    <section class="drives-section">
+        <div class="drives-block">
+            <div class="drives-label">What Drives Me</div>
+            <h2>"Next-generation vehicles are not about technology. They are about delivering experiences, stories, and life."</h2>
+            <p>I work in a field where thousand approvals, backup data, and documentation layers can make you forget why you started. I haven't forgotten. The reason is the person who opens the door, gets in, and drives — and whether what we built gave them something worth feeling.</p>
+            <p>My passion for troubleshooting and issue resolution isn't about closing tickets. It's about the moment a customer stops experiencing a problem they didn't know we caused. That gap between failure and resolution — that's where the work lives, and where I want to keep working.</p>
+            <p>The next step is a Master's in Vehicle Engineering in Sweden — not to become more technical in isolation, but to deepen the foundation that connects systems thinking to the future of how people move through the world.</p>
+            <div class="next-tag">
+                <i class="bi bi-mortarboard-fill"></i>
+                Vehicle Engineering MSc · Sweden · Applications open mid-2025
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="text-center py-4" style="border-top: 1px solid rgba(0,0,0,0.07); margin-top: 2rem;">
+    <p style="color: #9ca3af; font-size: 0.85rem;">&copy; 2026 Angel Vargas. All rights reserved.</p>
 </footer>
+
+<!-- FLOATING DOCK -->
+<nav class="floating-dock" aria-label="Quick navigation">
+    <a href="index.html" class="dock-link">
+        <i class="bi bi-house-fill"></i>
+        <span class="dock-tooltip">Home</span>
+    </a>
+    <a href="projects.html" class="dock-link">
+        <i class="bi bi-briefcase-fill"></i>
+        <span class="dock-tooltip">Projects</span>
+    </a>
+    <a href="about.html" class="dock-link">
+        <i class="bi bi-person-fill"></i>
+        <span class="dock-tooltip">About</span>
+    </a>
+    <a href="index.html#contact" class="dock-link">
+        <i class="bi bi-envelope-fill"></i>
+        <span class="dock-tooltip">Contact</span>
+    </a>
+    <button id="themeToggle" class="dock-link" type="button" aria-label="Toggle theme">
+        <i id="themeToggleIcon" class="bi bi-moon-fill"></i>
+        <span class="dock-tooltip">Theme</span>
+    </button>
+</nav>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/script.js"></script>
 </body>
 </html>
