@@ -1,15 +1,16 @@
 document.addEventListener('DOMContentLoaded', () => {
-
+    document.body.classList.add('js-loaded');
+    
     // ═══════════════════════════════════════════
     // 1. PAGE TRANSITION — fade in on load
     // ═══════════════════════════════════════════
     document.body.style.opacity = '0';
-    document.body.style.transition = 'opacity 0.4s ease';
-    requestAnimationFrame(() => {
         requestAnimationFrame(() => {
-            document.body.style.opacity = '1';
+            document.body.style.transition = 'opacity 0.5s ease';
+            requestAnimationFrame(() => {
+                document.body.style.opacity = '1';
+            });
         });
-    });
 
     // ═══════════════════════════════════════════
     // 2. DARK MODE
@@ -375,10 +376,9 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!href || href.startsWith('#') || href.startsWith('mailto') || href.startsWith('http')) return;
         link.addEventListener('click', e => {
             e.preventDefault();
-            gsap.to(document.body, {
-                opacity: 0, duration: 0.3, ease: 'power2.in',
-                onComplete: () => { window.location.href = href; }
-            });
+            document.body.style.transition = 'opacity 0.25s ease';
+            document.body.style.opacity = '0';
+            setTimeout(() => { window.location.href = href; }, 260);
         });
     });
 

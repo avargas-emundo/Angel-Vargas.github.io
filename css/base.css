@@ -117,3 +117,13 @@ body.dark-mode .summary-copy h2 {
 body.dark-mode footer {
     border-color: rgba(255,255,255,0.05) !important;
 }
+
+/* Page transition — hide immediately, JS fades in */
+body {
+    opacity: 0;
+}
+
+/* Fallback if JS fails */
+body.js-loaded {
+    opacity: 1;
+}
